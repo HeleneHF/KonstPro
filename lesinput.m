@@ -1,13 +1,12 @@
 function [npunkt,punkt,nelem,elem,nlast,last] = lesinput()
 
-
-%       %i = heltall (integer)       %f : desimaltall (flyt-tall)
+% i = heltall (integer)       %f : desimaltall (flyt-tall)
 
 %åpner inputfila
 filid = fopen('input.txt','r');
 
 
-%Leser hvor mange punkt det er
+% Leser hvor mange punkt det er
 npunkt = fscanf(filid,'%i',[1 1]);
 
 

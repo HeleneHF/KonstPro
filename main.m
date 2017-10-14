@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title: MATLAB PROJECT                                                   %
-% Course: TMR4167 - Marin Teknikk 2                                                             %                                                  
+% Course: TMR4167 - Marin Teknikk 2                                       %                                                  
 % Time: FALL 2017                                                         %
 % Authors:                                                                %                                                         
 % Updated: 2017-10-14                                                     %
@@ -10,50 +10,52 @@
 % Sletter alle variabler
 clear all
 
+%% ----------- 1. Definerer globale variable ------------------------------
+DefParametere   % Definert i separat .m fil 
+                % NB! 1 i stede for kandidatnummere!!!
 
-%% -----Leser input-data-----
+%% ----------- 2. Leser input-data ----------------------------------------
 [npunkt,punkt,nelem,elem,nlast,last] = lesinput();
 
 
-%% -----Regner lengder til elementene-----
+%% ----------- 3. Regner lengder til elementene ---------------------------
 %elementlengder=lengder(punkt,elem,nelem);
 
 
-%% ------Fastinnspenningsmomentene------
+%% ----------- 4. Fastinnspenningsmomentene -------------------------------
 % Lag funksjon selv
 %fim=moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder);
 
 
-%% ------Setter opp lastvektor-------
+%% ----------- 5. Setter opp lastvektor -----------------------------------
 % Lag funksjon selv
 %b=lastvektor(fim,npunkt,punkt,nelem,elem);
 
 
-%% ------Setter opp systemstivhetsmatrisen-------
+%% ----------- 6. Setter opp systemstivhetsmatrisen -----------------------
 % Lag funksjon selv
 %K=stivhet(nelem,elem,elementlengder,npunkt);
 
 
-%% ------Innfoerer randbetingelser-------
+%% ------------ 7. Innfører randbetingelser -------------------------------
 % Lag funksjon selv
 %[Kn,Bn] = bc(npunkt,punkt,K,b);
      
 
-%% -----Løser ligningssytemet -------
+%% ------------ 8. Løser ligningssytemet ----------------------------------
 % Lag funksjon selv
 %rot = Kn\Bn;
 
 
-%% -----Finner endemoment for hvert element -------
+%% ------------ 9. Finner endemoment for hvert element --------------------
 % Lag funksjon selv
 % endemoment=endeM(npunkt,punkt,nelem,elem,elementlengder,rot,fim);
 
 
-%% ----Skriver ut hva rotasjonen ble i de forskjellige nodene-------
+%% ----------- 10. Skriver ut rotasjonene ---------------------------------
 %disp('Rotasjonane i de ulike punkta:')
 %rot
 
-
-%% -----Skriver ut hva momentene ble for de forskjellige elementene-------
+%% ---------- 11. Skriver ut momentene  -----------------------------------
 %disp('Elementvis endemoment:')
 %endemoment
