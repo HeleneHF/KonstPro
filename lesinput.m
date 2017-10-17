@@ -1,12 +1,29 @@
 function [npunkt,punkt,nelem,elem,nlast,last] = lesinput()
 
-% i = heltall (integer)       %f : desimaltall (flyt-tall)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titel:    lesinput                                                      %
+% Funksjon: Leser inn nødvending informasjon om konstruksjonen og lastene %
+%           fra en forhåndsdefinert inputfil med nødvendig data.          %
+%           tilhørende lastene                                            %
+% Oppdatert: 2017-10-17                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%åpner inputfila
-filid = fopen('input.txt','r');
+% Bestem om man skal hovedoppgaven eller testfila       MIDLERTIDIG!!!
+test = true; 
 
+% Tilbake melding til brukeren
+fprintf('Regner ut lengden av elementene...\n')
 
-% Leser hvor mange punkt det er
+% Åpner inputfila
+if (test)
+    filid = fopen('input_c.txt','r');
+    fprintf('Leser inn oppgave c\n'); 
+else 
+    filid = fopen('input.txt','r');
+    fprintf('Leser inn hovedoppgaven\n');
+end
+ 
+% Leser antall punker
 npunkt = fscanf(filid,'%i',[1 1]);
 
 
@@ -17,11 +34,11 @@ npunkt = fscanf(filid,'%i',[1 1]);
 punkt = fscanf(filid,'%f %f %i',[3 npunkt])';
 
 
-%Leser hvor mange element det er
+% Leser antall elementer 
 nelem = fscanf(filid,'%i',[1 1]);
 
 
-%Leser konnektivitet: sammenheng elementender og knutepunktnummer. Og EI for elementene
+% Leser konnektivitet: sammenheng elementender og knutepunktnummer. Og EI for elementene
 % Elementnummer tilsvarer radnummer i "Elem-variabel"
 % Knutepunktnummer for lokal ende 1 lagres i kolonne 1
 % Knutepunktnummer for lokal ende 2 lagres i kolonne 2
@@ -30,16 +47,19 @@ nelem = fscanf(filid,'%i',[1 1]);
 elem = fscanf(filid,'%i %i %f %i',[4 nelem])';
 
 
-% Les hvor mange laster som virker. 
+% Leser antall laster 
 nlast = fscanf(filid,'%i',[1 1]);
 
 
-% Les lastdata
-% Bestem selv hvilke verdiene som er nødvendig å lese inn, og hva verdiene som leses inn
+% Leser lastdata
+% OPPGAVE: Bestem selv hvilke verdiene som er nødvendig å lese inn, og hva verdiene som leses inn
 % skal representere
 last = fscanf(filid,'%i %f %f %f',[4 nlast])';
 
 
 % LUKKER INPUT-FILEN
 fclose(filid);
+
+% Tilbake melding til brukeren
+fprintf('Informasjon lastet inn\n')
 end

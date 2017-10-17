@@ -1,14 +1,27 @@
-function svar=lengder(knutepunkt,element,nelem)
+function elemLengde = lengder(knutepunkt,elem,nelem)
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titel:    lengder                                                       %
+% Funksjon: Regner ut lengden på hver at elementene i konstruksjonen på   %
+%           bakgrunn av knutepuntskoordinatene                            %
+%           tilhørende lastene                                            %
+% Oppdatert: 2017-10-17                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-svar=zeros(nelem,1);
+% Tilbake melding til brukeren
+fprintf('Regner ut lengden på elementene...\n')
+
+elemLengde = zeros(nelem,1);
 
 % Beregner elementlengder
 for i=1:nelem
-   dx = knutepunkt(element(i,1),1)-knutepunkt(element(i,2),1);
-   dy = knutepunkt(element(i,1),2)-knutepunkt(element(i,2),2);
-   svar(i) = sqrt(dx*dx + dy*dy);
+   dx = knutepunkt(elem(i,1),1) - knutepunkt(elem(i,2),1);
+   dy = knutepunkt(elem(i,1),2) - knutepunkt(elem(i,2),2);
+   elemLengde(i) = sqrt(dx*dx + dy*dy);
 end
 
+% Tilbake melding til brukeren
+fprintf('Elementlengder regnet ut\n')
 
 end
+

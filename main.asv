@@ -31,7 +31,6 @@ elementlengder = lengder(knutepunkt,elem,nelem);
 
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
-
 % Lag funksjon selv
 %fastImoment = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder);
 
