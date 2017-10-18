@@ -8,7 +8,7 @@ function [I_areal] = I_areal(nTver,profil)
 % AaMoment: [nTver x 1]-matrise, inneholder 2. arealmoment for alle 
 %           tversnittene som er lest inn fra inputfilen     
 
-fprintf('Beregner annet arealmoment for tversnittene...\n')
+fprintf('Beregner 2.arealmoment for tversnittene...\n')
 
 for i = 1: nTver
     % I-PROFIL
@@ -71,6 +71,6 @@ for i = 1: nTver
     end
 end
 
-fprintf('Annet arealmoment beregnet for alle profiltyper\n\n')
+fprintf('2.arealmoment beregnet for alle profiltyper\n\n')
 end
 

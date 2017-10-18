@@ -1,4 +1,5 @@
-function [npunkt,punkt,nelem,elem,nlast,last,nTver,profil] = lesinput()
+function [npunkt, punkt, nelem, elem, nTver, profil, nPktL, nJfL,nMom] = lesinput()
+%function [npunkt,punkt,nelem,elem,nlast,last,nTver,profil] = lesinput()
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    lesinput                                                      %
@@ -58,17 +59,30 @@ profil = fscanf(filid,'%i %f %f %f %f %f %f',[7 nTver])';
 fprintf('Tversnittsdata lest inn\n')
     
 %% Laster
-% Leser antall laster 
-nlast = fscanf(filid,'%i',[1 1]);
 
+% % Leser antall laster 
+% nlast = fscanf(filid,'%i',[1 1]);
+% 
+% 
+% % Leser lastdata
+%     % last: [lasttype (1 => jevnt fordelt,2 => punktlast, 3 => ytre moment, 
+%     %       ]
+% last = fscanf(filid,'%i %f %f %f',[4 nlast])';
+% 
+% fprintf('Lastdata lest inn\n')
 
-% Leser lastdata
-    % last: [lasttype (1 => jevnt fordelt,2 => punktlast, 3 => ytre moment, 
-    %       ]
-last = fscanf(filid,'%i %f %f %f',[4 nlast])';
+% Leser antall punktlaster
+nPktL = fscanf(filid, '%i',[1 1]);
 
-fprintf('Lastdata lest inn\n')
+% Informasjon om punktlastene
+% FYLL INN I MORGEN 
+% Leser antall jevnt fordelte laster
+nJfL = fscanf(filid, '%i',[1 1]);
 
+% Leser antall påsatte momenter
+
+nMom = fscanf(filid, '%i',[1 1]);
+%% Avslutter
 % LUKKER INPUT-FILEN
 fclose(filid);
 

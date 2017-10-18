@@ -11,10 +11,11 @@ for i = 1: nelem
         elemStiv(i) = E(i)*I(1)*(1/l(i)); 
     
     elseif (elem(i,4) == 2) % Rør-Profil
-        elemStiv(i) = E(i)*I(2)*(1/l(i));
+        elemStiv(i) = E(i)*I(2)*(1/l(i))';
         
     else
         fprintf('Error\n')
+        elemStiv(i) = 0;    % DÅRLIG ELLER HVA? 
     end
 end
 

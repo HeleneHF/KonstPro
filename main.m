@@ -13,7 +13,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Sletter alle eldre variabler
-clear all
+clear all;
 
 %% ----------- 1. Definerer globale variable ------------------------------
 
@@ -22,11 +22,11 @@ DefParametere   % Definert i separat .m fil
                 % TROR DETTE SKAL INN I INPUTFILA I STEDE!!!
  
 %% ----------- 2. Leser input-data ----------------------------------------
-[npunkt,knutepunkt,nelem,elem,nlast,last,nTver,profil] = lesinput();
+[npunkt, punkt, nelem, elem, nTver, profil, nPktL, nJfL,nMom] = lesinput();
 
 
 %% ----------- 3. Regner ut bøyestivheten til elementene ------------------
-l = lengder(knutepunkt,elem,nelem); % Elementlengder [m]
+l = lengder(punkt,elem,nelem); % Elementlengder [m]
 I = I_areal(nTver,profil);          % 2. Arealmoment for ulike profiltyper¨
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
@@ -43,8 +43,7 @@ elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 
 %% ----------- 6. Setter opp systemstivhetsmatrisen -----------------------
-% Lag funksjon selv
-%K = stivhet(nelem,elem,elementlengder,npunkt);
+K = stivhet(nelem,elem,npunkt,elemStiv); 
 
 
 %% ------------ 7. Innfører randbetingelser -------------------------------
