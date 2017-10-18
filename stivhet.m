@@ -7,6 +7,10 @@ function K = stivhet(nelem,elem,elementlengder,npunkt)
 % Tilbake melding til brukeren
 fprintf('Regner ut bjelkestivhetene...\n')
 
+% EI/l!!
+
+
+
 % Tilbake melding til brukeren
 fprintf('Bjelkestivhetene regnet ut.\n')
 end

@@ -1,4 +1,4 @@
-function [npunkt,punkt,nelem,elem,nlast,last] = lesinput()
+function [npunkt,punkt,nelem,elem,nlast,last,nTver,profil] = lesinput()
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    lesinput                                                      %
@@ -12,25 +12,25 @@ function [npunkt,punkt,nelem,elem,nlast,last] = lesinput()
 test = true; 
 
 % Tilbake melding til brukeren
-fprintf('Regner ut lengden av elementene...\n')
+fprintf('Starter innlesning...\n')
 
 % Åpner inputfila
 if (test)
-    filid = fopen('input_c.txt','r');
-    fprintf('Leser inn oppgave c\n'); 
+    filid = fopen('inputC.txt','r');
+    fprintf('Leser inn oppgave c...\n'); 
 else 
     filid = fopen('input.txt','r');
-    fprintf('Leser inn hovedoppgaven\n');
+    fprintf('Leser inn hovedoppgaven...\n');
 end
- 
+
+%% Knutepunkt og elementer
 % Leser antall punker
 npunkt = fscanf(filid,'%i',[1 1]);
 
 
 % LESER INN XY-KOORDINATER TIL KNUTEPUNKTENE
-% Nodenummer tilsvarer radnummer i "Node-variabel"
-% x-koordinat lagres i første kolonne, y-koordinat i 2.kolonne
-% Grensebetingelse lagres i kolonne 3, fast innspent=1 og fri rotasjon=0
+    % punkt: [x-koordinat, y-koordinat, grensebetingelse....
+    % (1 => fast innspent, 0 => fri rotasjon)]
 punkt = fscanf(filid,'%f %f %i',[3 npunkt])';
 
 
@@ -38,28 +38,40 @@ punkt = fscanf(filid,'%f %f %i',[3 npunkt])';
 nelem = fscanf(filid,'%i',[1 1]);
 
 
-% Leser konnektivitet: sammenheng elementender og knutepunktnummer. Og EI for elementene
-% Elementnummer tilsvarer radnummer i "Elem-variabel"
-% Knutepunktnummer for lokal ende 1 lagres i kolonne 1
-% Knutepunktnummer for lokal ende 2 lagres i kolonne 2
-% E-modul for materiale lagres i kolonne 3
-% Tverrsnittstype lagres i kolonne 4, I-profil=1 og rørprofil=2  
+% Leser konnektivitet:
+    % [elementNummer, Knutpunkt ende 1, knutepunkt ende 2, E-modul, ....
+    % tversnittstype (1 = I-profil, 2 = Rør-profil)]  
 elem = fscanf(filid,'%i %i %f %i',[4 nelem])';
 
+fprintf('Noder og elementer lest inn\n')
 
+%% Tversnitt
+% Leser antall tversnitt
+nTver = fscanf(filid, '%i', [1 1]);
+
+% Leser informasjon om tversnittene i [mm]
+    % 1 => I-profil:    [profilnummer,høyde, bredde bunnflens, bredde ....
+    %                   toppflens, tykkelse stag, tykkelse bunnflens, ....
+    %                   tykkelse toppflens] 
+    % 2 => rørtvernitt: [profilnummer, ytrediameter, tykkelse, 0, 0, 0, 0]
+profil = fscanf(filid,'%i %f %f %f %f %f %f',[7 nTver])';
+fprintf('Tversnittsdata lest inn\n')
+    
+%% Laster
 % Leser antall laster 
 nlast = fscanf(filid,'%i',[1 1]);
 
 
 % Leser lastdata
-% OPPGAVE: Bestem selv hvilke verdiene som er nødvendig å lese inn, og hva verdiene som leses inn
-% skal representere
+    % last: [lasttype (1 => jevnt fordelt,2 => punktlast, 3 => ytre moment, 
+    %       ]
 last = fscanf(filid,'%i %f %f %f',[4 nlast])';
 
+fprintf('Lastdata lest inn\n')
 
 % LUKKER INPUT-FILEN
 fclose(filid);
 
 % Tilbake melding til brukeren
-fprintf('Informasjon lastet inn\n')
+fprintf('All informasjon lastet inn\n')
 end

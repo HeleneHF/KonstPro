@@ -12,7 +12,7 @@
 %                                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Sletter alle gammle variabler
+% Sletter alle eldre variabler
 clear all
 
 %% ----------- 1. Definerer globale variable ------------------------------
@@ -22,13 +22,13 @@ DefParametere   % Definert i separat .m fil
  
 %% ----------- 2. Leser input-data ----------------------------------------
 
-[npunkt,knutepunkt,nelem,elem,nlast,last] = lesinput();
+[npunkt,knutepunkt,nelem,elem,nlast,last,nTver,profil] = lesinput();
 
 
 %% ----------- 3. Regner lengder til elementene ---------------------------
-
+IAreal = I_areal(nTver,profil); 
 elementlengder = lengder(knutepunkt,elem,nelem);
-
+bjelkeStiv = bjelkeStivhet(nelem, elem,IAreal);
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 
