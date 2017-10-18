@@ -73,5 +73,5 @@ fprintf('Lastdata lest inn\n')
 fclose(filid);
 
 % Tilbake melding til brukeren
-fprintf('All informasjon lastet inn\n')
+fprintf('All informasjon lastet inn\n\n')
 end

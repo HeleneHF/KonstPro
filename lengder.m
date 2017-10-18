@@ -21,7 +21,7 @@ for i=1:nelem
 end
 
 % Tilbake melding til brukeren
-fprintf('Elementlengder regnet ut\n')
+fprintf('Elementlengder regnet ut\n\n')
 
 end
 

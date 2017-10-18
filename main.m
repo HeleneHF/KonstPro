@@ -19,16 +19,15 @@ clear all
 
 DefParametere   % Definert i separat .m fil 
                 % NB! 1 i stede for kandidatnummere!!!
+                % TROR DETTE SKAL INN I INPUTFILA I STEDE!!!
  
 %% ----------- 2. Leser input-data ----------------------------------------
-
 [npunkt,knutepunkt,nelem,elem,nlast,last,nTver,profil] = lesinput();
 
 
 %% ----------- 3. Regner lengder til elementene ---------------------------
-IAreal = I_areal(nTver,profil); 
-elementlengder = lengder(knutepunkt,elem,nelem);
-bjelkeStiv = bjelkeStivhet(nelem, elem,IAreal);
+l = lengder(knutepunkt,elem,nelem); % Elementlengder 
+
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 
@@ -43,8 +42,10 @@ bjelkeStiv = bjelkeStivhet(nelem, elem,IAreal);
 
 
 %% ----------- 6. Setter opp systemstivhetsmatrisen -----------------------
-
 % Lag funksjon selv
+I = I_areal(nTver,profil);          % 2. Arealmoment for ulike profiltyper¨
+elemStiv = elemStivhet(nelem,elem,l,I);
+
 %K = stivhet(nelem,elem,elementlengder,npunkt);
 
 
