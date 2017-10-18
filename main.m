@@ -3,7 +3,7 @@
 % Emne:     TMR4167 - Marin Teknikk 2                                     %                                                  
 % Semester: Høst 2017                                                     %
 % Forfattere:                                                             %                                                         
-% Oppdatert: 2017-10-17                                                   %
+% Oppdatert: 2017-10-18                                                   %
 % Funksjon: Main analyserer en konstruksjon med gitte profiler og laster  %
 %           ved hjelp av en rekke underfunksjoner. Den skriver ut         %
 %           rotasjonene i knutepunktene og endemomentene i knutepunktene  %
@@ -25,27 +25,25 @@ DefParametere   % Definert i separat .m fil
 [npunkt,knutepunkt,nelem,elem,nlast,last,nTver,profil] = lesinput();
 
 
-%% ----------- 3. Regner lengder til elementene ---------------------------
-l = lengder(knutepunkt,elem,nelem); % Elementlengder 
-
+%% ----------- 3. Regner ut bøyestivheten til elementene ------------------
+l = lengder(knutepunkt,elem,nelem); % Elementlengder [m]
+I = I_areal(nTver,profil);          % 2. Arealmoment for ulike profiltyper¨
+elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 
 % Lag funksjon selv
-%fastImoment = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder);
+% fastImoment = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder);
 
 
 %% ----------- 5. Setter opp lastvektor -----------------------------------
 
 % Lag funksjon selv
-%b = lastvektor(fim,npunkt,punkt,nelem,elem);
+% b = lastvektor(fim,npunkt,punkt,nelem,elem);
 
 
 %% ----------- 6. Setter opp systemstivhetsmatrisen -----------------------
 % Lag funksjon selv
-I = I_areal(nTver,profil);          % 2. Arealmoment for ulike profiltyper¨
-elemStiv = elemStivhet(nelem,elem,l,I);
-
 %K = stivhet(nelem,elem,elementlengder,npunkt);
 
 

@@ -6,7 +6,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Tilbake melding til brukeren
-fprintf('\n\nVellykket startup \nDefinerer parametere...\n')
+fprintf('\n\nVellykket startup \n\nDefinerer parametere...\n')
 
 % Laster i [kN]
 P1 = 1; 
