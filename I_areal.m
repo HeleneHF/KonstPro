@@ -1,12 +1,9 @@
 function [I_areal] = I_areal(nTver,profil)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Titel:    andreArealmoment                                              %
+% Titel:    I_areal                                             %
 % Funksjon: Leser inn tversnittsdata og regner ut 2.arealmoment for dem   %
 % Oppdatert: 2017-10-17                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% AaMoment: [nTver x 1]-matrise, inneholder 2. arealmoment for alle 
-%           tversnittene som er lest inn fra inputfilen     
 
 fprintf('Beregner 2.arealmoment for tversnittene...\n')
 

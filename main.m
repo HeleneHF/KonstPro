@@ -26,8 +26,8 @@ DefParametere   % Definert i separat .m fil
 
 
 %% ----------- 3. Regner ut bøyestivheten til elementene ------------------
-l = lengder(punkt,elem,nelem); % Elementlengder [m]
-I = I_areal(nTver,profil);          % 2. Arealmoment for ulike profiltyper¨
+l = lengder(punkt,elem,nelem);      % Elementlengder [m]
+I = I_areal(nTver,profil);          % 2. Arealmoment for ulike profiltyper
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
@@ -43,7 +43,7 @@ elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 
 %% ----------- 6. Setter opp systemstivhetsmatrisen -----------------------
-K = stivhet(nelem,elem,npunkt,elemStiv); 
+%K = stivhet(nelem,elem,npunkt,elemStiv); 
 
 
 %% ------------ 7. Innfører randbetingelser -------------------------------

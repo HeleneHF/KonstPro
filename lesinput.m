@@ -1,5 +1,4 @@
 function [npunkt, punkt, nelem, elem, nTver, profil, nPktL, nJfL,nMom] = lesinput()
-%function [npunkt,punkt,nelem,elem,nlast,last,nTver,profil] = lesinput()
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    lesinput                                                      %
@@ -40,8 +39,8 @@ nelem = fscanf(filid,'%i',[1 1]);
 
 
 % Leser konnektivitet:
-    % [elementNummer, Knutpunkt ende 1, knutepunkt ende 2, E-modul, ....
-    % tversnittstype (1 = I-profil, 2 = Rør-profil)]  
+    % [elementNummer, Knutpunkt ende 1, knutepunkt ende 2, E-modul ....
+    % i [MPa], tversnittstype (1 = I-profil, 2 = Rør-profil)]  
 elem = fscanf(filid,'%i %i %f %i',[4 nelem])';
 
 fprintf('Noder og elementer lest inn\n')
