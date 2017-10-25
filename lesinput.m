@@ -60,15 +60,15 @@ fprintf('Tversnittsdata lest inn\n')
 
 % Leser antall jevnt fordelte laster
 nJfL = fscanf(filid, '%i',[1 1]);
-JfL = fscanf(filid, '%f', [7 nJfL]);
+JfL = fscanf(filid, '%f', [7 nJfL])';
 
 % Leser antall punktlaster
 nPktL = fscanf(filid, '%i',[1 1]);
-PktL = fscanf(filid, '%f', [3 nPktL]);
+PktL = fscanf(filid, '%f', [3 nPktL])';
 
 % Leser antall påsatte momenter
 nMom = fscanf(filid, '%i',[1 1]);
-Mom = fscanf(filid, '%f', [3 nMom]);
+Mom = fscanf(filid, '%f', [3 nMom])';
 %% Avslutter
 % LUKKER INPUT-FILEN
 fclose(filid);
