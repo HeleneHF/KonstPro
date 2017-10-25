@@ -16,16 +16,17 @@
 clear all;
 
 %% ------------- 1. Leser input-data --------------------------------------
-[npunkt, punkt, nelem, elem, nTver, profil, nPktL, nJfL,nMom] = lesinput();
+[npunkt, punkt, nelem, elem, nTver, profil, nJfL, JfL, nPktL, PktL, ....
+nMom, Mom] = lesinput();
 
 %% ------------- 2. Beregninger elementer og profiler ---------------------    
+I = I_areal(nTver,profil);              % 2. Arealmoment for profiltypene
+
 l = lengder(punkt,elem,nelem);          % Elementlengder [m]
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
-I = I_areal(nTver,profil);              % 2. Arealmoment for profiltypene
-
 %% ------------ 3. Beregninger for lastene --------------------------------
-q_elem = q_elem();      % Amplitudene i knutepunktene
+% q_elem = q_elem();      % Amplitudene i knutepunktene
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 % Lag funksjon selv
@@ -62,6 +63,5 @@ K = stivhet(nelem,elem,npunkt,elemStiv); % Systemstivhetsmatrisen
 
 %% ---------- 11. Skriver ut momentene  -----------------------------------
 
-¨
 %disp('Elementvis endemoment:')
 %endemoment
