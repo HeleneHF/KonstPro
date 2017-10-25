@@ -28,6 +28,7 @@ elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 %% ------------ 3. Beregninger for lastene --------------------------------
 [q0_KPkt,stig] = q_KPkt(nelem, l, nJfL, JfL, npunkt);      % Amplitudene i knutepunktene
 
+
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 % Lag funksjon selv
 % fastImoment = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder);

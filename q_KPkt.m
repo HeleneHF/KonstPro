@@ -11,6 +11,7 @@ fprintf('Beregner last i knutepunktene når vi har jevnt fordelt last...\n')
 % Startparameter
 l_last = zeros(nJfL,1); 
 stig = zeros(nJfL,1);
+q_KPkt = zeros(npunkt,1); 
 
 % Regner ut lengdene
 for i = 1:nJfL
@@ -27,6 +28,17 @@ end
 % Regner ut stigningstallene
 for i = 1:nJfL
     stig(i) = (JfL(i,2) - JfL(i,3))/l_last(i,1);
+end
+
+for i = 1:npunkt 
+    for j = 1:nJfL
+        if stig(j) == 0
+            q_KPkt(i) = JfL(j)
+        else
+            q = 
+
+        end
+    end
 end
 
 fprintf('Laster i knutepunktene beregnet\n')
