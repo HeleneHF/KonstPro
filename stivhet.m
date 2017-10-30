@@ -5,7 +5,7 @@ function K = stivhet(nelem,elem,npunkt,elemStiv)
 % Oppdatert: 2017-10-17                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tilbake melding til brukeren
-fprintf('Beregner elementene i systemstivhetsmatrisen...\n')
+fprintf('\nBeregner elementene i systemstivhetsmatrisen...\n')
 
 K = zeros(npunkt);  % Oppretter systemstivhetsmatrisa
 const = [4 2; 4 2]; % 
