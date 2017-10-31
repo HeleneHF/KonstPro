@@ -15,7 +15,7 @@
 clear all;
 
 %% ------------- 1. Leser input-data --------------------------------------
-[npunkt, punkt, nelem, elem, nTver, profil, nJfL, JfL, nPktL, PktL, ....
+[npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL, PktL, ....
 nMom, Mom] = lesinput();
 
 %% ------------- 2. Beregninger elementer og profiler ---------------------    
@@ -25,12 +25,12 @@ l = lengder(punkt,elem,nelem);          % Elementlengder [m]
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 %% ------------ 3. Beregninger for lastene --------------------------------
-[q0_KPkt,stig] = q_KPkt(nelem,elem, l, nJfL, JfL, npunkt);      % Amplitudene i knutepunktene
+[q0_KPkt,stig] = q_KPkt(nelem,elem, l, nFlast, Flast, npunkt);      % Amplitudene i knutepunktene
 % NB! FUNKER IKKE ATM
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 % Lag funksjon selv
-% fImom_pktL = fIm_PktL();  
+ fastImoment = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast,Flast,nMom,Mom);
 % fastImoment = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder);
 
 

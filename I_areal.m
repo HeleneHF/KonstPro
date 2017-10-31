@@ -11,7 +11,7 @@ for i = 1: nTver
 % I-PROFIL
     if(profil(i,1) == 1) 
         % Henter informasjon (I-Profil)
-            h  = profil(i,2)       % Tversnittshøyde
+            h  = profil(i,2);       % Tversnittshøyde
             t_bf = profil(i,3);     % Tykkelse brunnflens
             t_tf = profil(i,4);     % Tykkelse toppflens
             t_s = profil(i,5);      % Tykkelse stag

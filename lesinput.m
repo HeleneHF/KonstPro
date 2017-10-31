@@ -1,4 +1,4 @@
-function [npunkt, punkt, nelem, elem, nTver, profil, nJfL, JfL, nPktL,....
+function [npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL,....
          PktL, nMom, Mom] = lesinput()
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,9 +58,9 @@ fprintf('Tversnittsdata lest inn\n')
     
 %% Laster
 
-% Leser antall jevnt fordelte laster
-nJfL = fscanf(filid, '%i',[1 1]);
-JfL = fscanf(filid, '%f', [7 nJfL])';
+% Leser antall fordelte laster
+nFlast = fscanf(filid, '%i',[1 1]);
+Flast = fscanf(filid, '%f', [7 nFlast])';
 
 % Leser antall punktlaster
 nPktL = fscanf(filid, '%i',[1 1]);
