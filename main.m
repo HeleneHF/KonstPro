@@ -25,18 +25,16 @@ l = lengder(punkt,elem,nelem);          % Elementlengder [m]
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 %% ------------ 3. Beregninger for lastene --------------------------------
-[q0_KPkt,stig] = q_KPkt(nelem,elem, l, nFlast, Flast, npunkt);      % Amplitudene i knutepunktene
+% [q0_KPkt,stig] = q_KPkt(nelem,elem, l, nFlast, Flast, npunkt);      % Amplitudene i knutepunktene
 % NB! FUNKER IKKE ATM
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 % Lag funksjon selv
- fastImoment = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast,Flast,nMom,Mom);
-% fastImoment = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder);
-
+ [fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast,Flast,nMom,Mom);
 
 %% ----------- 5. Setter opp lastvektor -----------------------------------
 % Lag funksjon selv
-% b = lastvektor(fim,npunkt,punkt,nelem,elem);
+b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem);
 
 
 %% ----------- 6. Setter opp systemstivhetsmatrisen -----------------------
@@ -50,7 +48,7 @@ K = stivhet(nelem,elem,npunkt,elemStiv); % Systemstivhetsmatrisen
 
 %% ------------ 8. Løser ligningssytemet ----------------------------------
 % Lag funksjon selv
-% rot = Kn*inv(Bn)                   (rot = Kn\Bn);
+% rot = inv(Bn)Kn;                   (rot = Kn\Bn);
 
 
 %% ------------ 9. Finner endemoment for hvert element --------------------

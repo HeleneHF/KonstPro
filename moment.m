@@ -1,4 +1,4 @@
-function fim = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast,Flast,nMom,Mom)
+function [fim, ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast,Flast,nMom,Mom)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    Moment                                                        %
 % Funksjon: Regner ut fastinnspenningsmomentet + FORNUFTIG FORKLARING     %
@@ -6,6 +6,7 @@ function fim = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast,Flast,nMom,M
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fim = zeros(nelem,2); 
+ytreMom = zeros(npunkt,1);
 
 % Punktlast
 for i = 1:nPktL
@@ -25,14 +26,17 @@ for i = 1:nPktL
 end
 
 % Fordelt last - Må få ferdig den andre først
-for j = 1:nFlast
-    
-end
-
-% Ytre momenter - Funker på et knutepunkt, ikke et element... 
-% for i = 1:nMom
+% for j = 1:nFlast
 %     
 % end
+
+% Ytre momenter - Funker på et knutepunkt, ikke et element... 
+ for i = 1:nMom
+    pkt = Mom(i,1);     % Knutepunktet momentet virker på 
+    M = Mom(i,2);       % Størrelsen på momentet 
+    
+    ytreMom(pkt) = M;  % Tilordnet riktig knutepunkt
+ end
 
 end
 
