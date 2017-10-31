@@ -1,0 +1,285 @@
+----< RESULTATER >----
+
+Maksimal boyespenning: 216.067[MPa]
+Paa elementnummer: 3
+
+Element 1
+
+ Momenter
+ Ende 1: -87.893[kNM]
+ Ende 2: 213.614[kNM]
+ Midten: -50.1643[kNM]
+ Boyespenning
+ Ende 1: -47.541[MPA]
+ Ende 2: 115.542[MPA]
+ Midten: -27.1335[MPA]
+Skjaerkraft
+ Ende 1: 53.373[kN]
+ Ende 2: -77.127[kN]
+
+Element 2
+
+ Momenter
+ Ende 1: -50.533[kNM]
+ Ende 2: 229.812[kNM]
+ Midten: -93.0769[kNM]
+ Boyespenning
+ Ende 1: -27.333[MPA]
+ Ende 2: 124.304[MPA]
+ Midten: -50.3446[MPA]
+Skjaerkraft
+ Ende 1: 59.410[kN]
+ Ende 2: -92.090[kN]
+
+Element 3
+
+ Momenter
+ Ende 1: -31.189[kNM]
+ Ende 2: 399.464[kNM]
+ Midten: -50.2544[kNM]
+ Boyespenning
+ Ende 1: -16.870[MPA]
+ Ende 2: 216.067[MPA]
+ Midten: -27.1822[MPA]
+Skjaerkraft
+ Ende 1: 54.160[kN]
+ Ende 2: -118.340[kN]
+
+Element 4
+
+ Momenter
+ Ende 1: -226.406[kNM]
+ Ende 2: -184.930[kNM]
+ Midten: -277.1747[kNM]
+ Boyespenning
+ Ende 1: -122.462[MPA]
+ Ende 2: -100.027[MPA]
+ Midten: -149.9218[MPA]
+Skjaerkraft
+ Ende 1: 129.628[kN]
+ Ende 2: -63.872[kN]
+
+Element 5
+
+ Momenter
+ Ende 1: -163.081[kNM]
+ Ende 2: 202.492[kNM]
+ Midten: -100.7132[kNM]
+ Boyespenning
+ Ende 1: -149.093[MPA]
+ Ende 2: 185.123[MPA]
+ Midten: -92.0745[MPA]
+Skjaerkraft
+ Ende 1: 60.811[kN]
+ Ende 2: -65.189[kN]
+
+Element 6
+
+ Momenter
+ Ende 1: -198.623[kNM]
+ Ende 2: 138.815[kNM]
+ Midten: -170.9004[kNM]
+ Boyespenning
+ Ende 1: -181.586[MPA]
+ Ende 2: 126.908[MPA]
+ Midten: -156.2413[MPA]
+Skjaerkraft
+ Ende 1: 47.483[kN]
+ Ende 2: -32.517[kN]
+
+Element 7
+
+ Momenter
+ Ende 1: -173.058[kNM]
+ Ende 2: 203.903[kNM]
+ Midten: -135.5196[kNM]
+ Boyespenning
+ Ende 1: -158.214[MPA]
+ Ende 2: 186.413[MPA]
+ Midten: -123.8953[MPA]
+Skjaerkraft
+ Ende 1: 70.286[kN]
+ Ende 2: -73.714[kN]
+
+Element 8
+
+ Momenter
+ Ende 1: -135.070[kNM]
+ Ende 2: -41.039[kNM]
+ Midten: 135.0696[kNM]
+ Boyespenning
+ Ende 1: -123.484[MPA]
+ Ende 2: -37.519[MPA]
+ Midten: 123.4839[MPA]
+Skjaerkraft
+ Ende 1:  9.784[kN]
+ Ende 2:  9.784[kN]
+
+Element 9
+
+ Momenter
+ Ende 1: -0.000[kNM]
+ Ende 2:  1.689[kNM]
+ Midten: Ikke dimmensjonerende[kNM]
+ Boyespenning
+ Ende 1: -0.000[MPA]
+ Ende 2:  0.913[MPA]
+ Midten: Ikke dimmensjonerende[MPA]
+Skjaerkraft
+ Ende 1: -0.141[kN]
+ Ende 2: -0.141[kN]
+
+Element 10
+
+ Momenter
+ Ende 1: -5.764[kNM]
+ Ende 2: -14.906[kNM]
+ Midten: Ikke dimmensjonerende[kNM]
+ Boyespenning
+ Ende 1: -3.118[MPA]
+ Ende 2: -8.062[MPA]
+ Midten: Ikke dimmensjonerende[MPA]
+Skjaerkraft
+ Ende 1:  1.722[kN]
+ Ende 2:  1.722[kN]
+
+Element 11
+
+ Momenter
+ Ende 1: -118.773[kNM]
+ Ende 2: -118.040[kNM]
+ Midten: -63.2728[kNM]
+ Boyespenning
+ Ende 1: -64.244[MPA]
+ Ende 2: -63.847[MPA]
+ Midten: -34.2238[MPA]
+Skjaerkraft
+ Ende 1: 30.341[kN]
+ Ende 2:  9.128[kN]
+
+Element 12
+
+ Momenter
+ Ende 1: -85.863[kNM]
+ Ende 2: 41.039[kNM]
+ Midten: Ikke dimmensjonerende[kNM]
+ Boyespenning
+ Ende 1: -46.443[MPA]
+ Ende 2: 22.198[MPA]
+ Midten: Ikke dimmensjonerende[MPA]
+Skjaerkraft
+ Ende 1:  3.735[kN]
+ Ende 2:  3.735[kN]
+
+Element 13
+
+ Momenter
+ Ende 1: -198.417[kNM]
+ Ende 2: 202.207[kNM]
+ Midten: -99.688[kNM]
+ Boyespenning
+ Ende 1: -181.398[MPA]
+ Ende 2: 184.863[MPA]
+ Midten: -91.1372[MPA]
+Skjaerkraft
+ Ende 1: 59.810[kN]
+ Ende 2: -60.190[kN]
+
+Element 14
+
+ Momenter
+ Ende 1: -5.136[kNM]
+ Ende 2: -3.442[kNM]
+ Midten: Ikke dimmensjonerende[kNM]
+ Boyespenning
+ Ende 1: -4.695[MPA]
+ Ende 2: -3.147[MPA]
+ Midten: Ikke dimmensjonerende[MPA]
+Skjaerkraft
+ Ende 1:  0.429[kN]
+ Ende 2:  0.429[kN]
+
+Element 15
+
+ Momenter
+ Ende 1: -0.000[kNM]
+ Ende 2:  4.984[kNM]
+ Midten: Ikke dimmensjonerende[kNM]
+ Boyespenning
+ Ende 1: -0.000[MPA]
+ Ende 2:  2.696[MPA]
+ Midten: Ikke dimmensjonerende[MPA]
+Skjaerkraft
+ Ende 1: -0.415[kN]
+ Ende 2: -0.415[kN]
+
+Element 16
+
+ Momenter
+ Ende 1:  4.594[kNM]
+ Ende 2: -0.781[kNM]
+ Midten: Ikke dimmensjonerende[kNM]
+ Boyespenning
+ Ende 1:  2.485[MPA]
+ Ende 2: -0.423[MPA]
+ Midten: Ikke dimmensjonerende[MPA]
+Skjaerkraft
+ Ende 1: -0.318[kN]
+ Ende 2: -0.318[kN]
+
+Element 17
+
+ Momenter
+ Ende 1: -211.785[kNM]
+ Ende 2: 173.599[kNM]
+ Midten: -107.3079[kNM]
+ Boyespenning
+ Ende 1: -193.619[MPA]
+ Ende 2: 158.709[MPA]
+ Midten: -98.1035[MPA]
+Skjaerkraft
+ Ende 1: 61.909[kN]
+ Ende 2: -58.091[kN]
+
+Element 18
+
+ Momenter
+ Ende 1:  4.223[kNM]
+ Ende 2: 10.194[kNM]
+ Midten: Ikke dimmensjonerende[kNM]
+ Boyespenning
+ Ende 1:  3.861[MPA]
+ Ende 2:  9.320[MPA]
+ Midten: Ikke dimmensjonerende[MPA]
+Skjaerkraft
+ Ende 1: -0.721[kN]
+ Ende 2: -0.721[kN]
+
+Element 19
+
+ Momenter
+ Ende 1: -48.143[kNM]
+ Ende 2: -96.287[kNM]
+ Midten: Ikke dimmensjonerende[kNM]
+ Boyespenning
+ Ende 1: -26.040[MPA]
+ Ende 2: -52.081[MPA]
+ Midten: Ikke dimmensjonerende[MPA]
+Skjaerkraft
+ Ende 1: 12.036[kN]
+ Ende 2: 12.036[kN]
+
+Element 20
+
+ Momenter
+ Ende 1: -77.312[kNM]
+ Ende 2: -10.194[kNM]
+ Midten: Ikke dimmensjonerende[kNM]
+ Boyespenning
+ Ende 1: -41.818[MPA]
+ Ende 2: -5.514[MPA]
+ Midten: Ikke dimmensjonerende[MPA]
+Skjaerkraft
+ Ende 1:  7.292[kN]
+ Ende 2:  7.292[kN]
+
