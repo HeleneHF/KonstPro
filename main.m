@@ -1,4 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    MATLAB-Prosjektet                                             %
 % Emne:     TMR4167 - Marin Teknikk 2                                     %                                                  
 % Semester: Høst 2017                                                     %
@@ -27,10 +26,11 @@ elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 %% ------------ 3. Beregninger for lastene --------------------------------
 [q0_KPkt,stig] = q_KPkt(nelem,elem, l, nJfL, JfL, npunkt);      % Amplitudene i knutepunktene
-
+% NB! FUNKER IKKE ATM
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 % Lag funksjon selv
+% fImom_pktL = fIm_PktL();  
 % fastImoment = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder);
 
 
