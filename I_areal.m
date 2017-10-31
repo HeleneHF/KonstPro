@@ -25,9 +25,9 @@ for i = 1: nTver
             a_tot = a_bf + a_tf + a_s;      % Totalt tversnittsareal 
 
         % Beregner lokale arealsenter (I-Profil) 
-            y_tf = h - (0.5*t_tf)
-            y_bf = 0.5*t_bf 
-            y_s = 0.5*h 
+            y_tf = h - (0.5*t_tf);
+            y_bf = 0.5*t_bf; 
+            y_s = 0.5*h; 
 
         % Beregner globalt arealsenter (I-Profil)
             if ((t_bf ~= t_tf) || (b_bf ~= b_tf))
