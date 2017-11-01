@@ -10,7 +10,7 @@ fprintf('Beregner last i knutepunktene når vi har jevnt fordelt last...\n')
 
 q0_KPkt = zeros(nelem,2);               % Initialiserer
 elemNum = Flast((1:nFlast),(4:7));      % Elementene det virker laster på 
-l_last = zeros(nFlast,1);
+l_last  = zeros(nFlast,1);
 
 %% Utregning
  for i = 1:nFlast               % Looper over det totale antallet laster
@@ -23,26 +23,21 @@ l_last = zeros(nFlast,1);
         l_elem  = l(element);   % Lengden av elementet
         l_tot   = l_tot + l_elem;   % Den totale lengden lasten går over
     end
-        
-    for k = 1:1%nFlast             % Summerer over det totale antall laster
-        q0 = Flast(k,2);         % Amplitude hovedende 1
-        q1 = Flast(k,3);         % Amplitude hovedende 2
-        s = (q1-q0)/l_tot;       % Stigningstall
-        q_a =  q0;               % 1.hovedende = 1.knutepunkt
-        %q_a = 1; 
-        %l_elem = 0; 
-        
-        for h = 1:antall_elem           % Looper over antall elementer lasten går over
-            element = Flast(i,h+3);     % Elementnummeret
-            l_elem  = l(element);       %l_elem + l(element);   % Lengden av elementet
-            q_b = q_a + s*l_elem;       % Beregner amplituden i "motsatt" ende
-            q0_KPkt(element,1) = q_a;   % Tilordner til hovedmatrisa
-            q0_KPkt(element,2) = q_b;   % Tilordner til hovedmatrisa
-            
-            
-            q_a = q_b;                % Oppdaterer før neste element
-             
-        end
+    
+    q0 = Flast(i,2)         % Amplitude hovedende 1
+    q1 = Flast(i,3)         % Amplitude hovedende 2
+    s = (q1-q0)/l_tot       % Stigningstall
+    q_a =  q0;               % 1.hovedende = 1.knutepunkt
+
+    for h = 1:antall_elem           % Looper over antall elementer lasten går over
+        element = Flast(i,h+3);     % Elementnummeret
+        l_elem  = l(element);       %l_elem + l(element);   % Lengden av elementet
+        q_b = q_a + s*l_elem;       % Beregner amplituden i "motsatt" ende
+        q0_KPkt(element,1) = q_a;   % Tilordner til hovedmatrisa
+        q0_KPkt(element,2) = q_b;   % Tilordner til hovedmatrisa
+
+        q_a = q_b;                % Oppdaterer før neste element
+
     end
  end
 
