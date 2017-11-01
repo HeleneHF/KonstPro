@@ -17,15 +17,15 @@ function [npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL,....
 %                       knutepunkt ende 2, E-modul [MPa],                 %
 %                       tversnittstype (1 = I-profil, 2 = Rør-profil)]    %
 %                                                                         %
-%           profil(I) = [profilnummer,profil høyde, bredde bunnflens,.... %
-%                       bredde. toppflens, tykkelse stag, tykkelse ....   %
-%                       bunnflens,tykkelse toppflens]                     %
+%           profil(I) = [profilnummer,profil høyde, tykkelse bunnflens,.. %
+%                       tykkelse toppflens, tykkelse stag, bredde ....    %
+%                       bunnflens,bredde toppflens]                       %
 %                                                                         %
 %           profil(rør) = [profilnummer, ytrediameter, tykkelse,          %
 %                          0, 0, 0,0]                                     %
 %                                                                         %
 %           Flast =     [antall element lasten går over, amplitude første %
-%                       element, amplitude siste element,                 %                                   %
+%                       element, amplitude siste element,                 %                             
 %                       elementene lasten går over(maks 4)]               %
 %                                                                         %
 %           PktL =      [elementnummer,amplitude, avstand til KPkt 1]     %
@@ -63,13 +63,13 @@ fprintf('Tversnittsdata lest inn\n')                % Melding til bruker
     
 %% Laster
 nFlast = fscanf(filid, '%i',[1 1]);          % Antall fordelte laster
-Flast  = fscanf(filid, '%f', [7 nFlast])';   % Info om de fordelte lastene
+Flast  = fscanf(filid, '%i %f %f %i %i %i %i', [7 nFlast])';   % Info om de fordelte lastene
 
 nPktL =  fscanf(filid, '%i',[1 1]);          % Antall punktlaster
-PktL  =  fscanf(filid, '%f', [3 nPktL])';    % Info om punktlastene
+PktL  =  fscanf(filid, '%i %f %f', [3 nPktL])';    % Info om punktlastene
 
 nMom  =  fscanf(filid, '%i',[1 1]);          % Antall ytre momenter
-Mom   =  fscanf(filid, '%f', [3 nMom])';     % Informasjon om momentene
+Mom   =  fscanf(filid, '%i %f', [3 nMom])';     % Informasjon om momentene
 
 %% Avslutter
 fclose(filid);                               % Lukker input-filen

@@ -32,12 +32,12 @@ momFlast = momFl(q0_KPkt,nelem,l);            % Momentene pga fordelt last
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 
-[fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast, ....
-                        Flast,nMom,Mom);
+%[fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast, ....
+%                        Flast,nMom,Mom);
 
 %% ----------- 5. Setter opp lastvektor b ---------------------------------
 
-b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem);    
+%b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem);    
 
 %% ----------- 6. Setter opp systemstivhetsmatrisen K ---------------------
 
