@@ -1,13 +1,16 @@
 function b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    Lastvektor                                                    %
-% Funksjon: Setter sammen lastvektoren                                    %
+% Funksjon: Setter sammen lastvektoren. Tar inn fastinnspenningsmomentene %
+%           og de ytre momentene. Omgjør slik at vi har informasjon om    %
+%           hver node i stede for hver ende av et element. Sørger for     %
+%           riktig fortegn.                                               % 
 % Oppdatert: 2017-10-17                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-fprintf('Beregner lastvektoren...\n')
+fprintf('Beregner lastvektoren...\n')       % Melding til bruker
 
-b = zeros(npunkt,1);                        
+b = zeros(npunkt,1);                        % Setter av plass til verdiene
 
 % Fra fordelte laster og punktlaster
 for i = 1:nelem
@@ -21,7 +24,7 @@ end
 % Fra ytre momenter
 b = b + ytreMom;        % Legger til de ytre momentene i tilhørende punkt 
 
-fprintf('Lastvektor beregnet.\n')           % Melding til brukeren
+fprintf('Lastvektor beregnet.\n\n')           % Melding til bruker
 
 end
 

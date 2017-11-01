@@ -5,11 +5,9 @@ function endemoment = endeM(npunkt,punkt,nelem,elem,elementlengder,rot,fim)
 % Oppdatert: 2017-10-17                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Tilbake melding til brukeren
-fprintf('Regner ut endemomenter...\n')
+fprintf('Regner ut endemomenter...\n'); % Melding til bruker
 
-% Tilbake melding til brukeren
-fprintf('Endemomenter regnet ut.\n')
+fprintf('Endemomenter regnet ut.\n'); % Melding til bruker
 
 end
 

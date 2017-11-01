@@ -1,4 +1,4 @@
-% Titel:    MATLAB-Prosjektet                                             %
+PU% Titel:    MATLAB-Prosjektet                                             %
 % Emne:     TMR4167 - Marin Teknikk 2                                     %                                                  
 % Semester: Høst 2017                                                     %
 % Forfattere:                                                             %                                                         
@@ -20,7 +20,6 @@ nMom, Mom] = lesinput();
 
 %% ------------- 2. Beregninger elementer og profiler ---------------------    
 I = I_areal(nTver,profil);              % 2. Arealmoment for profiltypene
-
 l = lengder(punkt,elem,nelem);          % Elementlengder [m]
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
@@ -29,21 +28,16 @@ elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 % NB! FUNKER IKKE ATM
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
-% Lag funksjon selv
- [fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast,Flast,nMom,Mom);
+[fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast,Flast,nMom,Mom);
 
-%% ----------- 5. Setter opp lastvektor -----------------------------------
-% Lag funksjon selv
-b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem);
+%% ----------- 5. Setter opp lastvektor b ---------------------------------
+b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem);    
 
-
-%% ----------- 6. Setter opp systemstivhetsmatrisen -----------------------
-K = stivhet(nelem,elem,npunkt,elemStiv); % Systemstivhetsmatrisen
-
+%% ----------- 6. Setter opp systemstivhetsmatrisen K ---------------------
+K = stivhet(nelem,elem,npunkt,elemStiv);            
 
 %% ------------ 7. Innfører randbetingelser -------------------------------
-% Lag funksjon selv
-%[Kn, Bn] = bc(npunkt,punkt,K,b);
+%[Kn, Bn] = bc(npunkt,punkt,K,b); %
      
 
 %% ------------ 8. Løser ligningssytemet ----------------------------------

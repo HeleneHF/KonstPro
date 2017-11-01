@@ -5,11 +5,9 @@ function [Kn, Bn] = bc(npunkt,punkt,K,b)
 % Oppdatert: 2017-10-17                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Tilbake melding til brukeren
-fprintf('Inkluderer grensebetingelser...\n')
+fprintf('Inkluderer grensebetingelser...\n')      % Melding til bruker
 
-% Tilbake melding til brukeren
-fprintf('Grensebetingelser tatt hensyn til.\n')
+fprintf('Grensebetingelser tatt hensyn til.\n\n') % Melding til bruker
 
 end
 

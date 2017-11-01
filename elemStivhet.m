@@ -4,20 +4,24 @@ function [elemStiv] = elemStivhet(nelem,elem,l,I)
 % Funksjon: Beregner bjelkestivheten EI/l for alle elementene             %                                          %
 % Oppdatert: 2017-10-18                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-E = elem(:,3); % E-modul 
+
+fprintf('Elementstivhetene beregnes...\n');  % Melding til bruker
+    
+E = elem(:,3);                              % E-modul 
+elemStiv = zeros(nelem,1);                  % Initialiserer elemStiv
 
 for i = 1: nelem
-    if(elem(i,4) == 1) % I-Profil
-        elemStiv(i) = E(i)*I(1)*(1/l(i)); 
+    if(elem(i,4) == 1)                      
+        elemStiv(i) = E(i)*I(1)*(1/l(i));   % I-Profil
     
-    elseif (elem(i,4) == 2) % Rør-Profil
-        elemStiv(i) = E(i)*I(2)*(1/l(i))';
+    elseif (elem(i,4) == 2) 
+        elemStiv(i) = E(i)*I(2)*(1/l(i))';  % Rør-Profil
         
     else
         fprintf('Error\n')
-        elemStiv(i) = 0;    % DÅRLIG ELLER HVA? 
+        elemStiv(i) = 0;                    % Ukjent profil 
     end
 end
 
+fprintf('Elementstivheter beregnet\n\n');   % Melding til bruker
 end
-
