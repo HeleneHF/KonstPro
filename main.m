@@ -1,4 +1,4 @@
-PU% Titel:    MATLAB-Prosjektet                                             %
+% Titel:    MATLAB-Prosjektet                                             %
 % Emne:     TMR4167 - Marin Teknikk 2                                     %                                                  
 % Semester: Høst 2017                                                     %
 % Forfattere:                                                             %                                                         
@@ -25,13 +25,15 @@ l = lengder(punkt,elem,nelem);          % Elementlengder [m]
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 %% ------------ 3. Beregninger for lastene --------------------------------
-
-% [q0_KPkt,stig] = q_KPkt(nelem,elem, l, nFlast, Flast, npunkt);      % Amplitudene i knutepunktene
 % NB! FUNKER IKKE ATM
+[q0_KPkt,stig] = q_KPkt(nelem,elem, l, .... % Amplitudene i knutepunktene
+                    nFlast, Flast, npunkt);    
+momFlast = momFl(q0_Kpkt,nelem);            % Momentene pga fordelt last           
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 
-[fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast,Flast,nMom,Mom);
+[fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast, ....
+                        Flast,nMom,Mom);
 
 %% ----------- 5. Setter opp lastvektor b ---------------------------------
 
@@ -43,7 +45,7 @@ K = stivhet(nelem,elem,npunkt,elemStiv);
 
 %% ------------ 7. Innfører randbetingelser -------------------------------
 
-[Kn, Bn] = bc(npunkt,punkt,K,b); %
+%[Kn, Bn] = bc(npunkt,punkt,K,b); %
      
 
 %% ------------ 8. Løser ligningssytemet ----------------------------------
