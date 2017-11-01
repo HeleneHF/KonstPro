@@ -1,36 +1,48 @@
-function [q0_KPkt,stig] = q_KPkt(nelem, elem, l, nFlast, Flast,npunkt)
+function q0_KPkt = q_KPkt(nelem, elem, l, nFlast, Flast,npunkt)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    q_elem                                                        %
 % Funksjon: Regner inn amplitudene i knutepunkt 1 og 2 for tilfellene der %
-%           vi har jevnt fordelt                                          %
+%           vi har jevnt fordelt last over et eller flere elementer       %
 % Oppdatert: 2017-11-01                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('Beregner last i knutepunktene når vi har jevnt fordelt last...\n')
 
 %% NYTT FORSØK ONSDAG 01.11.2018
-q0_KPkt = zeros(nelem,2);            % Initialiserer q0_Kpkt
+q0_KPkt = zeros(nelem,2);               % Initialiserer q0_Kpkt
 
 
 for i = 1:nFlast
-    if Flast(i,1) == 1                  % De som bare får over ett element
+    if Flast(i,1) == 1                  % Når de bare går over ett element
         element  = Flast(i,4);          % Lasten elementet går over
-        KPkt_a   = elem(element,1);     % Elementets første knutepunkt
-        KPkt_b   = elem(element,2);     % Elementets andre knutepunkt
+        
         q_a      = Flast(i,2);          % Amplituden i første knutepunkt
         q_b      = Flast(i,3);          % Amplituden i andre knutepunkt
-        q0_KPkt(i,KPkt_a) = q_a;        % Amplituden tilordnes i KPkt a
-        q0_KPkt(i,KPkt_b) = q_b;        % Amplituden tilordnes i KPkt b
+        
+        q0_KPkt(element,1) = q_a;       % Amplituden tilordnes i KPkt a
+        q0_KPkt(element,2) = q_b;       % Amplituden tilordnes i KPkt b
+        
          
-    elseif Flast(i,1) > 0               % De som går over flere elementer
+    elseif Flast(i,1) > 0               % Når de går over flere elementer
+        elements = Flast(i,4:end);      % Elementene lasten går over
+        
+        for j = 1:4                     % For hver last
+            if elements(j) > 0
+               element = elements(j);           % Elementnummer for denne lasten
+            else
+                fprintf('Error! Lasten går ikke over et element\n'); 
+            end
+          KPkt_a   = elem(element,1);      % Elementets første knutepunkt
+          KPkt_b   = elem(element,2);      % Elementets andre knutepunkt
+          
+        end
     
-    else                            % Om en last går over under ett element
+        
+    else                                % Last over mindre enn ett element
         fprintf('Error - Lasten går over mindre enn et element!\n'); 
         
     end
 end
-
-stig = 1; 
 
 %% ELDRE TEST
 % % Setter av plass

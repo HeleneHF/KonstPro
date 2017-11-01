@@ -26,9 +26,9 @@ elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 %% ------------ 3. Beregninger for lastene --------------------------------
 % NB! FUNKER IKKE ATM
-[q0_KPkt,stig] = q_KPkt(nelem,elem, l, .... % Amplitudene i knutepunktene
-                    nFlast, Flast, npunkt);    
-momFlast = momFl(q0_Kpkt,nelem);            % Momentene pga fordelt last           
+q0_KPkt = q_KPkt(nelem,elem, l, nFlast, ....  % Amplitudene i knutepunktene
+                Flast, npunkt);    
+momFlast = momFl(q0_KPkt,nelem,l);            % Momentene pga fordelt last           
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 
