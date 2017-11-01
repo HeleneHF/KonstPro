@@ -11,46 +11,55 @@ PU% Titel:    MATLAB-Prosjektet                                             %
 %                                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Sletter alle eldre variabler
-clear all;
+clear all; % Sletter eldre variable
 
 %% ------------- 1. Leser input-data --------------------------------------
+
 [npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL, PktL, ....
 nMom, Mom] = lesinput();
 
-%% ------------- 2. Beregninger elementer og profiler ---------------------    
+%% ------------- 2. Beregninger elementer og profiler ---------------------   
+
 I = I_areal(nTver,profil);              % 2. Arealmoment for profiltypene
 l = lengder(punkt,elem,nelem);          % Elementlengder [m]
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 %% ------------ 3. Beregninger for lastene --------------------------------
+
 % [q0_KPkt,stig] = q_KPkt(nelem,elem, l, nFlast, Flast, npunkt);      % Amplitudene i knutepunktene
 % NB! FUNKER IKKE ATM
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
+
 [fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast,Flast,nMom,Mom);
 
 %% ----------- 5. Setter opp lastvektor b ---------------------------------
+
 b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem);    
 
 %% ----------- 6. Setter opp systemstivhetsmatrisen K ---------------------
+
 K = stivhet(nelem,elem,npunkt,elemStiv);            
 
 %% ------------ 7. Innfører randbetingelser -------------------------------
-%[Kn, Bn] = bc(npunkt,punkt,K,b); %
+
+[Kn, Bn] = bc(npunkt,punkt,K,b); %
      
 
 %% ------------ 8. Løser ligningssytemet ----------------------------------
+
 % Lag funksjon selv
-% rot = inv(Bn)Kn;                   (rot = Kn\Bn);
+% rot = inv(Bn)*Kn;                   (rot = Kn\Bn);
 
 
 %% ------------ 9. Finner endemoment for hvert element --------------------
 % Lag funksjon selv
+
 % endemoment = endeM(npunkt,punkt,nelem,elem,elementlengder,rot,fim);
 
 
 %% ----------- 10. Skriver ut rotasjonene ---------------------------------
+
 %disp('Rotasjonane i de ulike punkta:')
 %rot
 

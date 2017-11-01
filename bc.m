@@ -7,6 +7,10 @@ function [Kn, Bn] = bc(npunkt,punkt,K,b)
 
 fprintf('Inkluderer grensebetingelser...\n')      % Melding til bruker
 
+
+
+
+
 fprintf('Grensebetingelser tatt hensyn til.\n\n') % Melding til bruker
 
 end
