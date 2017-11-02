@@ -38,7 +38,7 @@ fprintf('\nStarter innlesning...\n');   % Melding til bruker
 
 %% Åpner inputfila
 if (hoved)    
-    filid = fopen('input.txt','r');             % Åpner hovedoppgaven
+    filid = fopen('TestInputC_2014.txt','r');             % Åpner hovedoppgaven
     fprintf('Leser inn hovedoppgaven...\n');    % Melding til bruker
 else 
     filid = fopen('inputC.txt','r');            % Åpner Oppgave c

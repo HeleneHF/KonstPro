@@ -13,7 +13,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear all; % Sletter eldre variable
-format short; 
+format shorteng; 
 
 %% ------------- 1. Leser input-data --------------------------------------
 
