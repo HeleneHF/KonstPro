@@ -7,9 +7,9 @@ function [annetarealmoment y_global] = annetarealmoment_iprofil(h,...
 a_toppflens = b_toppflens * t_toppflens;
 a_bunnflens = b_bunnflens * t_bunnflens;
 a_steg = (h - t_toppflens - t_bunnflens) * t_steg;
-y_toppflens = h - t_toppflens/2
-y_bunnflens = t_bunnflens/2
-y_steg = h/2
+y_toppflens = h - t_toppflens/2;
+y_bunnflens = t_bunnflens/2;
+y_steg = h/2;
 a_tot = a_toppflens + a_bunnflens + a_steg;
 
 

@@ -6,25 +6,27 @@ function [Kn, Bn] = bc(npunkt,punkt,K,b)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('Inkluderer grensebetingelser...\n')      % Melding til bruker
-Kn = K;     % Initialiserer
-Bn = b;     % Initialiserer
+
+Kn = K;     % Initialiserer stivhetsmatrise inkludert rammebetingelser
+Bn = b;     % Initialiserer lastvektor inkludert rammebetingelser
 
 
 for i = 1:npunkt
     bc = punkt(i,3); 
-    if bc == 1      % Fast innspent
-        
     
+    if bc == 1      % Fast innspent
+        Kn(:,i) = 0;    % Nuller ut rad
+        Kn(i,:) = 0;    % Nuller ut kolonne
+        Kn(i,i) = 1;    % Setter inn slik at det blir med NB! SETT INN MER FORNUFTIG FORKLARING
+        
+        Bn(i) = 0; % Nuller ut i lastvektoren
+        
     elseif (bc == 1) && (bc == 0) % Test for feil 
         fprintf('Error! Verdien tilsvarer ikke en definert bc!\n')  
-        
-        
-    else            % Fri rotasjon
         
     end
 end
 
 fprintf('Grensebetingelser tatt hensyn til.\n\n') % Melding til bruker
-
 end
 

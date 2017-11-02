@@ -1,4 +1,4 @@
-function [I_areal] = I_areal(nTver,profil)
+function [I_areal,y_global] = I_areal(nTver,profil)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    I_areal                                                       %
 % Funksjon: Leser inn tversnittsdata og regner ut 2.arealmoment for de    %
@@ -9,7 +9,9 @@ function [I_areal] = I_areal(nTver,profil)
 fprintf('Beregner 2.arealmoment for tversnittene...\n'); % Melding til bruker
 I_areal = zeros(2,1);
 
+
 for i = 1: nTver
+    y_global = 0; 
 % I-PROFIL
     if(profil(i,1) == 1) 
         % Henter informasjon (I-Profil)
@@ -39,12 +41,12 @@ for i = 1: nTver
                     if (y_c >= (h - y_c))
                         y_global = y_c;
                     else
-                        y_global = h - y_c; % USIKKER PÅ HVA JEG SKAL MED DEG
+                        y_global = h - y_c; 
                     end
                     
             elseif (((t_bf == t_tf) && (b_bf == b_tf)))
                 y_c = h/2; 
-                y_global = y_c;             % USIKKER PÅ HBA JEG SKAL MED DEG
+                y_global = y_c;            
             
             else
                fprintf('Error');            
@@ -61,9 +63,10 @@ for i = 1: nTver
         
 % RØRTVERSNITT
     elseif(profil(i,1) == 2)
-        r = 0.5*profil(i,2);                        % Ytre diameter 
+        r = 0.5*profil(i,2);                        % radius
         t = profil(i,3);                            % Tykkelse 
         I_areal(i,1) = ((pi/4)*(r^4 - (r-t)^4));    % 2. Arealmoment rør.T
+        y_global = r;
                    
         
 % ANNET    

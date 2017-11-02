@@ -1,3 +1,4 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    MATLAB-Prosjektet                                             %
 % Emne:     TMR4167 - Marin Teknikk 2                                     %                                                  
 % Semester: Høst 2017                                                     %
@@ -13,6 +14,11 @@
 
 clear all; % Sletter eldre variable
 format short; 
+
+%% Nyttig
+deg2rad = 180/pi; 
+rad2deg = pi/180;
+
 %% ------------- 1. Leser input-data --------------------------------------
 
 [npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL, PktL, ....
@@ -20,7 +26,7 @@ nMom, Mom] = lesinput();
 
 %% ------------- 2. Beregninger elementer og profiler ---------------------   
 
-I = I_areal(nTver,profil);              % 2. Arealmoment for profiltypene
+[I,y_global]  = I_areal(nTver,profil);  % 2. Arealmoment og globalt arealsenter for profiltypene
 l = lengder(punkt,elem,nelem);          % Elementlengder [m]
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
@@ -28,8 +34,7 @@ elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 q0_KPkt = q_KPkt(nelem,elem, l, nFlast, ....  % Amplitudene i knutepunktene
                 Flast, npunkt);    
-% momFlast = momFl(q0_KPkt,nelem,l);             % Momentene pga fordelt last           
-
+             
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 
 [fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast, ....
@@ -45,25 +50,24 @@ K = stivhet(nelem,elem,npunkt,elemStiv);
 
 %% ------------ 7. Innfører randbetingelser -------------------------------
 
-[Kn, Bn] = bc(npunkt,punkt,K,b); %
+[Kn, Bn] = bc(npunkt,punkt,K,b); 
      
 
 %% ------------ 8. Løser ligningssytemet ----------------------------------
-
 % Lag funksjon selv
-% rot = inv(Bn)*Kn;                   (rot = Kn\Bn);
+rot = Kn\Bn; 
 
 
 %% ------------ 9. Finner endemoment for hvert element --------------------
 % Lag funksjon selv
 
-% endemoment = endeM(npunkt,punkt,nelem,elem,elementlengder,rot,fim);
+%endemoment = endeM(npunkt,punkt,nelem,elem,elementlengder,rot,fim);
 
 
 %% ----------- 10. Skriver ut rotasjonene ---------------------------------
 
-%disp('Rotasjonane i de ulike punkta:')
-%rot
+disp('Rotasjonane i de ulike punkta:')
+rot
 
 %% ---------- 11. Skriver ut momentene  -----------------------------------
 

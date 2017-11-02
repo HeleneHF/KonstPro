@@ -5,7 +5,7 @@ function [npunkt, punkt, nelem, elem, last_punkt, last_moment,...
 %       %i = heltall (integer)       %f : desimaltall (flyt-tall)
 
 %aapner inputfila
-filid = fopen('input.txt','r');
+filid = fopen('inputfilC.txt','r');
 
 
 %% Knutepunkter, profiler og elementer

@@ -36,7 +36,7 @@ b = lastvektor(fim, moment_ytre, nelem, npunkt, elem);
 K = stivhetsmatrise(bjelkestivhet, elem, npunkt, nelem);
 
 % ------Innfoerer randbetingelser-------
-[Kn Bn] = bc(npunkt, punkt, K, b);
+[Kn, Bn] = bc(npunkt, punkt, K, b);
      
 
 % -----Loser ligningssytemet -------

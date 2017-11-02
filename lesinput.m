@@ -17,7 +17,7 @@ function [npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL,....
 %                       knutepunkt ende 2, E-modul [MPa],                 %
 %                       tversnittstype (1 = I-profil, 2 = Rør-profil)]    %
 %                                                                         %
-%           profil(I) = [profilnummer,profil høyde, tykkelse bunnflens,.. %
+%           profil(I) = [profilnummer,profilhøyde, tykkelse bunnflens,.. %
 %                       tykkelse toppflens, tykkelse stag, bredde ....    %
 %                       bunnflens,bredde toppflens]                       %
 %                                                                         %
@@ -38,7 +38,7 @@ fprintf('\nStarter innlesning...\n');   % Melding til bruker
 
 %% Åpner inputfila
 if (hoved)    
-    filid = fopen('input.txt','r');             % Åpner hovedoppgaven
+    filid = fopen('inputC_2014.txt','r');             % Åpner hovedoppgaven
     fprintf('Leser inn hovedoppgaven...\n');    % Melding til bruker
 else 
     filid = fopen('inputC.txt','r');            % Åpner Oppgave c
