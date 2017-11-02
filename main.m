@@ -2,7 +2,7 @@
 % Emne:     TMR4167 - Marin Teknikk 2                                     %                                                  
 % Semester: Høst 2017                                                     %
 % Forfattere:                                                             %                                                         
-% Oppdatert: 2017-10-25                                                   %
+% Oppdatert: 2017-11-02                                                   %
 % Funksjon: Main analyserer en konstruksjon med gitte profiler og laster  %
 %           ved hjelp av en rekke underfunksjoner. Den skriver ut         %
 %           rotasjonene i knutepunktene og endemomentene i knutepunktene  %
@@ -12,7 +12,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear all; % Sletter eldre variable
-
+format short; 
 %% ------------- 1. Leser input-data --------------------------------------
 
 [npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL, PktL, ....
@@ -25,19 +25,19 @@ l = lengder(punkt,elem,nelem);          % Elementlengder [m]
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 %% ------------ 3. Beregninger for lastene --------------------------------
-% NB! FUNKER IKKE ATM
+
 q0_KPkt = q_KPkt(nelem,elem, l, nFlast, ....  % Amplitudene i knutepunktene
                 Flast, npunkt);    
-momFlast = momFl(q0_KPkt,nelem,l);            % Momentene pga fordelt last           
+% momFlast = momFl(q0_KPkt,nelem,l);            % Momentene pga fordelt last           
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 
-%[fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast, ....
-%                        Flast,nMom,Mom);
+[fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast, ....
+                        Flast,nMom,Mom,q0_KPkt);
 
 %% ----------- 5. Setter opp lastvektor b ---------------------------------
 
-%b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem);    
+b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem);    
 
 %% ----------- 6. Setter opp systemstivhetsmatrisen K ---------------------
 

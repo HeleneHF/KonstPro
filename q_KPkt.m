@@ -24,9 +24,9 @@ l_last  = zeros(nFlast,1);
         l_tot   = l_tot + l_elem;   % Den totale lengden lasten går over
     end
     
-    q0 = Flast(i,2)         % Amplitude hovedende 1
-    q1 = Flast(i,3)         % Amplitude hovedende 2
-    s = (q1-q0)/l_tot       % Stigningstall
+    q0 = Flast(i,2);         % Amplitude hovedende 1
+    q1 = Flast(i,3);         % Amplitude hovedende 2
+    s = (q1-q0)/l_tot;       % Stigningstall
     q_a =  q0;               % 1.hovedende = 1.knutepunkt
 
     for h = 1:antall_elem           % Looper over antall elementer lasten går over

@@ -2,7 +2,7 @@ function momFlast = momFl(q0_KPkt,nelem,l)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    momFl                                                         %
 % Funksjon:                                                               %
-% Oppdatert: 2017-11-01                                                   %
+% Oppdatert: 2017-11-02                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 momFlast = zeros(nelem,2);       % Initialiserer momFlast
