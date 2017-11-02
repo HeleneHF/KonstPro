@@ -28,7 +28,7 @@ elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 q0_KPkt = q_KPkt(nelem,elem, l, nFlast, ....  % Amplitudene i knutepunktene
                 Flast, npunkt);    
-% momFlast = momFl(q0_KPkt,nelem,l);            % Momentene pga fordelt last           
+% momFlast = momFl(q0_KPkt,nelem,l);             % Momentene pga fordelt last           
 
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 
@@ -45,7 +45,7 @@ K = stivhet(nelem,elem,npunkt,elemStiv);
 
 %% ------------ 7. Innfører randbetingelser -------------------------------
 
-%[Kn, Bn] = bc(npunkt,punkt,K,b); %
+[Kn, Bn] = bc(npunkt,punkt,K,b); %
      
 
 %% ------------ 8. Løser ligningssytemet ----------------------------------
