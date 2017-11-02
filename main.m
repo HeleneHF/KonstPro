@@ -15,10 +15,6 @@
 clear all; % Sletter eldre variable
 format short; 
 
-%% Nyttig
-deg2rad = 180/pi; 
-rad2deg = pi/180;
-
 %% ------------- 1. Leser input-data --------------------------------------
 
 [npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL, PktL, ....
@@ -42,7 +38,7 @@ q0_KPkt = q_KPkt(nelem,elem, l, nFlast, ....  % Amplitudene i knutepunktene
 
 %% ----------- 5. Setter opp lastvektor b ---------------------------------
 
-b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem);    
+b = lastvektor(fim,ytreMom,npunkt,nelem,elem);   
 
 %% ----------- 6. Setter opp systemstivhetsmatrisen K ---------------------
 
@@ -66,8 +62,8 @@ rot = Kn\Bn;
 
 %% ----------- 10. Skriver ut rotasjonene ---------------------------------
 
-disp('Rotasjonane i de ulike punkta:')
-rot
+% disp('Rotasjonane i de ulike punktene:')
+% rot
 
 %% ---------- 11. Skriver ut momentene  -----------------------------------
 

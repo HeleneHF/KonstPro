@@ -1,4 +1,4 @@
-function b = lastvektor(fim,ytreMom,npunkt,punkt,nelem,elem)
+function b = lastvektor(fim,ytreMom,npunkt,nelem,elem)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    Lastvektor                                                    %
 % Funksjon: Setter sammen lastvektoren. Tar inn fastinnspenningsmomentene %
@@ -16,7 +16,9 @@ b = zeros(npunkt,1);                        % Setter av plass til verdiene
 for i = 1:nelem
     kPkt1 = elem(i,1);                      % Knutepunkt 1 for elementet
     kPkt2 = elem(i,2);                      % Knutepunkt 2 for elementet
-    
+%     
+     %a = fim(i,1)
+     % c = fim(i,2) 
     b(kPkt1,1) = b(kPkt1,1) - fim(i,1);     % "Summerer" laster i kPkt 1
     b(kPkt2,1) = b(kPkt2,1) - fim(i,2);     % "Summerer" laster i kPkt 2
 end 
@@ -25,6 +27,5 @@ end
 b = b + ytreMom;        % Legger til de ytre momentene i tilhørende punkt 
 
 fprintf('Lastvektor beregnet.\n\n')           % Melding til bruker
-
 end
 
