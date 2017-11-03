@@ -18,7 +18,8 @@ for i = 1:nelem
     %Beregner belkeendemoment fra rotasjoner
     moment_rotasjon(i,:) = bjelkestivhet(i) *...
         [4 * vinkel1 + 2 * vinkel2, 2 * vinkel1 + 4 * vinkel2];
-    
+    fim(i,1)
+    fim(i,2)
     %Bjelkeendemomentene fra rotasjoner settes i matrise, sammen med
     %fastinnspenningsmomentene
     endemoment(i,:) = fim(i,:) + moment_rotasjon(i,:);

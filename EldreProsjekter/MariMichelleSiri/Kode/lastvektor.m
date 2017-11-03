@@ -10,10 +10,11 @@ for i = 1:nelem
     
     %Henter fastinnspenningsmoment gjor om til fastholdingsmomenter 
     %(fortegn), og setter i lastvektor
+    %a = fim(i,1)
+    %c = fim(i,2)
     b(punkt1,1) = b(punkt1,1) - fim(i,1);
     b(punkt2,1) = b(punkt2,1) - fim(i,2);
 
 end
-%Legger til ytre moment
 b =  b + moment_ytre;
 end

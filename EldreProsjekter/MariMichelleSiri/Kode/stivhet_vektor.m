@@ -28,6 +28,6 @@ for i = 1:nelem
             profil(tverr_type,7));
     end
     %Regner ut og lagrer stivhet i vektor
-    stivhet(i,1) = E*I(i)/L; 
+    stivhet(i,1) = E*I(i)/L;
 end
 end

@@ -21,7 +21,7 @@ OUTPUT:
 %}
 
 % Åpner inputfila
-filid = fopen('input_oppg.txt','r');
+filid = fopen('input_C.txt','r');
 
 
 % Leser hvor mange punkt det er

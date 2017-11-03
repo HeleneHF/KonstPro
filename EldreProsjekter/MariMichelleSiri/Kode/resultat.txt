@@ -6,12 +6,12 @@ Paa elementnummer: 2
 Element 1
 
  Momenter
- Ende 1:  0.000[kNM]
- Ende 2:  0.000[kNM]
+ Ende 1: -0.000[kNM]
+ Ende 2: -0.000[kNM]
  Midten: -405[kNM]
  Boyespenning
- Ende 1:  0.000[MPA]
- Ende 2:  0.000[MPA]
+ Ende 1: -0.000[MPA]
+ Ende 2: -0.000[MPA]
  Midten: -116.3665[MPA]
 Skjaerkraft
  Ende 1: 90.000[kN]

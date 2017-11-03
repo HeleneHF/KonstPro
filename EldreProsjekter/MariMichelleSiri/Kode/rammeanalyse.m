@@ -69,7 +69,7 @@ skjarkrafter = skjaer(nelem, moment_rotasjon,elementlengder...
     );
 
 
-%Skriver ut resulatatene til filen rusultat.txt
+% %Skriver ut resulatatene til filen rusultat.txt
 filid1=fopen('resultat.txt','w');
 
 fprintf(filid1,'----< RESULTATER >----\n\n');
