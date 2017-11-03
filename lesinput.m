@@ -41,7 +41,7 @@ if (hoved)
     filid = fopen('TestInputC_2014.txt','r');             % Åpner hovedoppgaven
     fprintf('Leser inn hovedoppgaven...\n');    % Melding til bruker
 else 
-    filid = fopen('inputC.txt','r');            % Åpner Oppgave c
+    filid = fopen('input.txt','r');            % Åpner Oppgave c
     fprintf('Leser inn oppgave c...\n');        % Melding til bruker
 end
 

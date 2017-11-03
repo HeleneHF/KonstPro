@@ -23,7 +23,9 @@ nMom, Mom] = lesinput();
 %% ------------- 2. Beregninger elementer og profiler ---------------------   
 
 [I,y_global]  = I_areal(nTver,profil);  % 2. Arealmoment og globalt arealsenter for profiltypene
+
 l = lengder(punkt,elem,nelem);          % Elementlengder [m]
+
 elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
 
 %% ------------ 3. Beregninger for lastene --------------------------------
@@ -48,16 +50,14 @@ K = stivhet(nelem,elem,npunkt,elemStiv);
 
 [Kn, Bn] = bc(npunkt,punkt,K,b); 
      
-
 %% ------------ 8. Løser ligningssytemet ----------------------------------
-% Lag funksjon selv
-rot = Kn\Bn; 
 
+rot = Kn\Bn; 
 
 %% ------------ 9. Finner endemoment for hvert element --------------------
 % Lag funksjon selv
 
-%endemoment = endeM(npunkt,punkt,nelem,elem,elementlengder,rot,fim);
+endemoment = endeM(npunkt,punkt,nelem,elem,rot,fim,elemStiv);
 
 
 %% ----------- 10. Skriver ut rotasjonene ---------------------------------
