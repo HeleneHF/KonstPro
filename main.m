@@ -22,37 +22,37 @@ nMom, Mom] = lesinput();
 
 %% ------------- 2. Beregninger elementer og profiler ---------------------   
 
-[I,y_global]  = I_areal(nTver,profil);  % 2. Arealmoment og globalt arealsenter for profiltypene
+[I,y_global]  = I_areal(nTver,profil);  % 2. Arealmoment og globalt arealsenter for profiltypene [[mm^4],[mm]]
 
-l = lengder(punkt,elem,nelem);          % Elementlengder [m]
+l = lengder(punkt,elem,nelem);          % Elementlengder [mm]
 
-elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet []
+elemStiv = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet [Nmm] ??????
 
 %% ------------ 3. Beregninger for lastene --------------------------------
 
 q0_KPkt = q_KPkt(nelem,elem, l, nFlast, ....  % Amplitudene i knutepunktene
-                Flast, npunkt);    
+                Flast, npunkt);               % ([kN/m] =  [N/mm])
              
 %% ----------- 4. Fastinnspenningsmomentene -------------------------------
 
 [fim,ytreMom] = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nFlast, ....
-                        Flast,nMom,Mom,q0_KPkt);
+                        Flast,nMom,Mom,q0_KPkt); % [Nmm]
 
 %% ----------- 5. Setter opp lastvektor b ---------------------------------
 
-b = lastvektor(fim,ytreMom,npunkt,nelem,elem);   
+b = lastvektor(fim,ytreMom,npunkt,nelem,elem);   % [Nmm]
 
 %% ----------- 6. Setter opp systemstivhetsmatrisen K ---------------------
 
-K = stivhet(nelem,elem,npunkt,elemStiv);            
+K = stivhet(nelem,elem,npunkt,elemStiv);  % [Nmm]          
 
 %% ------------ 7. Innfører randbetingelser -------------------------------
 
-[Kn, Bn] = bc(npunkt,punkt,K,b); 
+[Kn, Bn] = bc(npunkt,punkt,K,b); % [Nmm]
      
 %% ------------ 8. Løser ligningssytemet ----------------------------------
 
-rot = Kn\Bn; 
+rot = Kn\Bn; % [-]
 
 %% ------------ 9. Finner endemoment for hvert element --------------------
 % Lag funksjon selv

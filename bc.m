@@ -7,8 +7,8 @@ function [Kn, Bn] = bc(npunkt,punkt,K,b)
 
 fprintf('Inkluderer grensebetingelser...\n')      % Melding til bruker
 
-Kn = K;     % Initialiserer stivhetsmatrise inkludert rammebetingelser
-Bn = b;     % Initialiserer lastvektor inkludert rammebetingelser
+Kn = K;     % Initialiserer stivhetsmatrise inkludert rammebetingelser [Nmm]
+Bn = b;     % Initialiserer lastvektor inkludert rammebetingelser [Nmm]
 
 
 for i = 1:npunkt
@@ -17,7 +17,7 @@ for i = 1:npunkt
     if bc == 1      % Fast innspent
         Kn(:,i) = 0;    % Nuller ut rad
         Kn(i,:) = 0;    % Nuller ut kolonne
-        Kn(i,i) = 1;    % Setter inn slik at det blir med NB! SETT INN MER FORNUFTIG FORKLARING
+        Kn(i,i) = 1;    % Setter inn slik at det blir med NB! SETT INN MER FORNUFTIG FORKLARING [Nmm]
         
         Bn(i) = 0; % Nuller ut i lastvektoren
         

@@ -14,29 +14,29 @@ l_last  = zeros(nFlast,1);
 
 %% Utregning
  for i = 1:nFlast               % Looper over det totale antallet laster
-    l_elem  = 0;                % Initaliserer lengden av ett element
-    l_tot   = 0;                % Initaliserer totallengden
+    l_elem  = 0;                % Initaliserer lengden av ett element [mm]
+    l_tot   = 0;                % Initaliserer totallengden [mm]
     antall_elem = Flast(i,1);   % Antall fordelte laster
     
-    for j = 1:antall_elem       % Looper over antall elementer lasten går over
+    for j = 1:antall_elem         % Looper over antall elementer lasten går over
         element = Flast(i,j+3);   % Elementnummeret 
-        l_elem  = l(element);   % Lengden av elementet
-        l_tot   = l_tot + l_elem;   % Den totale lengden lasten går over
+        l_elem  = l(element);     % Lengden av elementet [mm]
+        l_tot   = l_tot + l_elem;   % Den totale lengden lasten går over [mm]
     end
     
-    q0 = Flast(i,2);         % Amplitude hovedende 1
-    q1 = Flast(i,3);         % Amplitude hovedende 2
-    s = (q1-q0)/l_tot;       % Stigningstall
-    q_a =  q0;               % 1.hovedende = 1.knutepunkt
+    q0 = Flast(i,2);         % Amplitude hovedende 1 ([kN/m] =  [N/mm])
+    q1 = Flast(i,3);         % Amplitude hovedende 2 ([kN/m] =  [N/mm])
+    s = (q1-q0)/l_tot;       % Stigningstall [N] 
+    q_a =  q0;               % 1.hovedende = 1.knutepunkt ([kN/m] =  [N/mm]);
 
     for h = 1:antall_elem           % Looper over antall elementer lasten går over
         element = Flast(i,h+3);     % Elementnummeret
-        l_elem  = l(element);       %l_elem + l(element);   % Lengden av elementet
-        q_b = q_a + s*l_elem;       % Beregner amplituden i "motsatt" ende
-        q0_KPkt(element,1) = q_a;   % Tilordner til hovedmatrisa
-        q0_KPkt(element,2) = q_b;   % Tilordner til hovedmatrisa
-
-        q_a = q_b;                % Oppdaterer før neste element
+        l_elem  = l(element);       %l_elem + l(element);   % Lengden av elementet [mm]
+        q_b = q_a + s*l_elem;       % Beregner amplituden i "motsatt" ende ([kN/m] =  [N/mm])
+        q0_KPkt(element,1) = q_a;   % Tilordner til hovedmatrisa ([kN/m] =  [N/mm])
+        q0_KPkt(element,2) = q_b;   % Tilordner til hovedmatrisa ([kN/m] =  [N/mm])
+ 
+        q_a = q_b;                % Oppdaterer før neste element ([kN/m] =  [N/mm])
 
     end
  end

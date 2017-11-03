@@ -10,38 +10,38 @@ function [npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL,....
 % Oppdatert: 2017-11-01                                                   %
 %                                                                         %
 % Formater:                                                               %
-%           punkt =     [x-koordinat, y-koordinat, grensebetingelse       %
+%           punkt =     [x-koordinat [mm], y-koordinat [mm], grensebetingelse       %
 %                       (1 => fast innspent, 0 => fri rotasjon)]          %
 %                                                                         %
 %           elem =      [elementNummer, Knutpunkt ende 1,                 %
 %                       knutepunkt ende 2, E-modul [MPa],                 %
 %                       tversnittstype (1 = I-profil, 2 = Rør-profil)]    %
 %                                                                         %
-%           profil(I) = [profilnummer,profilhøyde, tykkelse bunnflens,.. %
-%                       tykkelse toppflens, tykkelse stag, bredde ....    %
-%                       bunnflens,bredde toppflens]                       %
+%           profil(I) = [profilnummer,profilhøyde [mm], tykkelse bunnflens [mm],.. %
+%                       tykkelse toppflens [mm], tykkelse stag [mm],  bredde ....    %
+%                       bunnflens[mm],bredde toppflens[mm]]                       %
 %                                                                         %
-%           profil(rør) = [profilnummer, ytrediameter, tykkelse,          %
+%           profil(rør) = [profilnummer, ytrediameter[mm], tykkelse [mm], %
 %                          0, 0, 0,0]                                     %
 %                                                                         %
 %           Flast =     [antall element lasten går over, amplitude første %
-%                       element, amplitude siste element,                 %                             
+%                       element ([kN/m] = [N/mm]), amplitude siste element ([kN/m] = [N/mm]),  %                             
 %                       elementene lasten går over(maks 4)]               %
 %                                                                         %
-%           PktL =      [elementnummer,amplitude, avstand til KPkt 1]     %
+%           PktL =      [elementnummer,amplitude [N], avstand til KPkt 1 [mm]]     %
 %                                                                         %
-%           Mom =       [Knutepunkt, moment]                              %
+%           Mom =       [Knutepunkt, moment [Nmm]                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-hoved = true;                           % Avgjør om hoved- eller testfila
+hoved = false;                          % Avgjør om hoved- eller testfila
 fprintf('\nStarter innlesning...\n');   % Melding til bruker
 
 %% Åpner inputfila
 if (hoved)    
-    filid = fopen('TestInputC_2014.txt','r');             % Åpner hovedoppgaven
+    filid = fopen('input.txt','r');             % Åpner hovedoppgaven
     fprintf('Leser inn hovedoppgaven...\n');    % Melding til bruker
 else 
-    filid = fopen('input.txt','r');            % Åpner Oppgave c
+    filid = fopen('TestInputC_2014.txt','r');   % Åpner Oppgave c 2014
     fprintf('Leser inn oppgave c...\n');        % Melding til bruker
 end
 
