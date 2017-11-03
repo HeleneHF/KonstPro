@@ -57,8 +57,16 @@ rot = Kn\Bn; % [-]
 %% ------------ 9. Finner endemoment for hvert element --------------------
 % Lag funksjon selv
 
-endemoment = endeM(npunkt,punkt,nelem,elem,rot,fim,elemStiv);
+endemoment = endeM(npunkt,punkt,nelem,elem,rot,fim,elemStiv); % NB: FEIL!!
+endemoment = [-58.2977e-9, -58.2977e-9; ....
+              -810.000e3, 0]; %NB! MARI SINE FOR Å HA NOE Å TESTE PÅ 
+          
+%% ------------ 10. Bøyemoment i endene pga. punktlast --------------------
+          
 
+%% ------------ 11. Bøyemoment under lasten pga. punktlast ----------------
+
+BoyPktL = BoyPgaPktL(nelem,elem,l,nPktL, PktL,fim);  
 
 %% ----------- 10. Skriver ut rotasjonene ---------------------------------
 
