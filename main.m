@@ -55,10 +55,12 @@ K = stivhet(nelem,elem,npunkt,elemStiv);  % [Nmm]
 rot = Kn\Bn; % [-]
 
 %% ------------ 9. Finner endemoment for hvert element --------------------
+%[endemoment, moment_rotasjon] = endeM(nelem, elem,...
+%    elemStiv, rot, fim);
 
 endemoment = endeM(npunkt,punkt,nelem,elem,rot,fim,elemStiv);   % NB: FEIL!!
-endemoment = [-58.2977e-9, -58.2977e-9; ....
-              -810.000e3, 0];                                   %NB! MARI SINE FOR Å HA NOE Å TESTE PÅ 
+%endemoment = [-58.2977e-9, -58.2977e-9; ....
+%              -810.000e3, 0];                                   %NB! MARI SINE FOR Å HA NOE Å TESTE PÅ 
           
 %% ------------ 10. Bøyemoment i endene pga. punktlast --------------------
 
@@ -69,10 +71,9 @@ BoyPktL = BoyPgaPktL(nelem,elem,l,nPktL, PktL,fim);
 
 
 %% ------------ 13. Bøyemoment midt på bjelken pga. fordelt last ----------
-% Samme som endemoment, bare sett inn når endemoment-funksjonen faktisk er
-% riktig!!
 
-m_midt = BoyPgaFL(nelem,elem,l,q0_KPkt,fim);  
+m_midt = BoyPgaFL(nelem,l,q0_KPkt,fim);  
+v = sjaer(nelem, elem,l,endemoment,nPktL,PktL,nFlast,Flast,q0_KPkt);
 
   %% ----------- 10. Skriver ut rotasjonene ---------------------------------
 

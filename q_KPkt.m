@@ -3,7 +3,7 @@ function q0_KPkt = q_KPkt(nelem, elem, l, nFlast, Flast,npunkt)
 % Titel:    q_elem                                                        %
 % Funksjon: Regner inn amplitudene i knutepunkt 1 og 2 for tilfellene der %
 %           vi har jevnt fordelt last over et eller flere elementer       %
-% Oppdatert: 2017-11-01                                                   %
+% Oppdatert: 2017-11-04                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('Beregner last i knutepunktene når vi har jevnt fordelt last...\n')
