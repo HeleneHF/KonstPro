@@ -13,7 +13,7 @@ function [npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL,....
 %           punkt =     [x-koordinat [mm], y-koordinat [mm], grensebetingelse       %
 %                       (1 => fast innspent, 0 => fri rotasjon)]          %
 %                                                                         %
-%           elem =      [elementNummer, Knutpunkt ende 1,                 %
+%           elem =      [Knutpunkt ende 1,                 %
 %                       knutepunkt ende 2, E-modul [MPa],                 %
 %                       tversnittstype (1 = I-profil, 2 = Rør-profil)]    %
 %                                                                         %

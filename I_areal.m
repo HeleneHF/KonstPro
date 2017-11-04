@@ -1,4 +1,4 @@
-function [I_areal,y_global] = I_areal(nTver,profil)
+function I_areal = I_areal(nTver,profil)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    I_areal                                                       %
 % Funksjon: Leser inn tversnittsdata og regner ut 2.arealmoment for de    %
