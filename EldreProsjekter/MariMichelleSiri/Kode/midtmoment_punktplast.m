@@ -19,4 +19,4 @@ for i = 1:nlast_punkt
     
     moment(elemnr,1) = m1 + m2 + moment(elemnr,1);
 end
-end
+end 
