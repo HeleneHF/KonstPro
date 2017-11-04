@@ -33,7 +33,7 @@ function [npunkt, punkt, nelem, elem, nTver, profil, nFlast, Flast, nPktL,....
 %           Mom =       [Knutepunkt, moment [Nmm]                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-hoved = true;                          % Avgjør om hoved- eller testfila
+hoved = false;                          % Avgjør om hoved- eller testfila
 fprintf('\nStarter innlesning...\n');   % Melding til bruker
 
 %% Åpner inputfila

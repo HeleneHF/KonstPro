@@ -61,7 +61,7 @@ endemoment = [-58.2977e-9, -58.2977e-9; ....
               -810.000e3, 0];                                   %NB! MARI SINE FOR Å HA NOE Å TESTE PÅ 
           
 %% ------------ 10. Bøyemoment i endene pga. punktlast --------------------
-          
+
 
 %% ------------ 11. Bøyemoment under lasten pga. punktlast ----------------
 
@@ -69,7 +69,10 @@ BoyPktL = BoyPgaPktL(nelem,elem,l,nPktL, PktL,fim);
 
 
 %% ------------ 13. Bøyemoment midt på bjelken pga. fordelt last ----------
+% Samme som endemoment, bare sett inn når endemoment-funksjonen faktisk er
+% riktig!!
 
+m_midt = BoyPgaFL(nelem,elem,l,q0_KPkt,fim);  
 
   %% ----------- 10. Skriver ut rotasjonene ---------------------------------
 
