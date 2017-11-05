@@ -1,29 +1,27 @@
-function K = stivhet(nelem,elem,npunkt,elemStiv)
+function K = stivhet(nelem,elem,npunkt,EI_L)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Titel:    Stivhet                                                       %
-% Funksjon:                                                               %
+% Titel:    stivhet                                                       %
+% Funksjon: Regner ut elementstivhetsmatrisa for hvert element og         %
+%           plasserer verdiene riktig i den globale stivehetsmatrisa      %
 % Oppdatert: 2017-11-02                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-fprintf('Beregner elementene i systemstivhetsmatrisen...\n') % Til bruker
-
-K = zeros(npunkt);          % Oppretter systemstivhetsmatrisa 
-const = [4 2; 2 4];         % 
+K = zeros(npunkt);           
+konst = [4 2; 2 4];         
 
 for i=1:nelem
-    % Lokalt 
     KPkt1 = elem(i,1);      % Knutepunkt ende 1 
     KPkt2 = elem(i,2);      % Knutepunkt ende 2
     
-    k = const*elemStiv(i);  % Elementstivhetsmatrisa [Nmm](??)
+    k = konst*EI_L(i);  % Lokal elementstivhetsmatrise
     
-    % Globalt
-    K(KPkt1,KPkt1) = K(KPkt1,KPkt1) + k(1,1); % [Nmm]
-    K(KPkt2,KPkt1) = K(KPkt2,KPkt1) + k(2,1); % [Nmm]
-    K(KPkt1,KPkt2) = K(KPkt1,KPkt2) + k(1,2); % [Nmm]
-    K(KPkt2,KPkt2) = K(KPkt2,KPkt2) + k(2,2); % [Nmm]
+    % Tilordner i den globale stivhetsmatrisen 
+    K(KPkt1,KPkt1) = K(KPkt1,KPkt1) + k(1,1); 
+    K(KPkt2,KPkt1) = K(KPkt2,KPkt1) + k(2,1); 
+    K(KPkt1,KPkt2) = K(KPkt1,KPkt2) + k(1,2); 
+    K(KPkt2,KPkt2) = K(KPkt2,KPkt2) + k(2,2); 
 end
 
-fprintf('Systemstivhetsmatrise definert\n\n')   % Melding til bruker
+fprintf('Systemstivhetsmatrise definert\n')   
 end
 
