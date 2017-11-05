@@ -45,12 +45,10 @@ for j = 1:nelem
 %  ----------------------- Trekantlast ------------------------------------        
        elseif (q_a == 0) || (q_b == 0) 
            if abs(q_a) > abs(q_b)                  % Størst i ende a  
-               disp('a størst')
                m_ab = -(1/20)*q_a*L^2;  
                 m_ba = (1/30)*q_a*L^2;   
 
            else                          % Størst i ende b
-               disp('b størst')
                 m_ab = -(1/30)*q_b*L^2;  
                 m_ba = (1/20)*q_b*L^2;              
            end 

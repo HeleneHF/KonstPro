@@ -47,7 +47,10 @@ K = stivhet(nelem,elem,npunkt,EI_l);            % Systemstivhetsmatrisen
 rot = Kn\Bn;                        % Beregner rotasjonene
 
 %% ---------- 7. ENDEMOMENTER ---------------------------------------------
-endeMom = endeM(npunkt,punkt,nelem,elem,rot,fim,EI_l);   
+% NB: FEIL!!
+[endemoment, moment_rotasjon] = endeM(nelem, elem,...
+    bjelkestivhet, rot, fim)
+    endeMom = endeM(npunkt,punkt,nelem,elem,rot,fim,EI_l);   
     %endeMom = [-58.2077e-9, -58.2077e-9; ....
     %              -810.000e6, 0];  %NB! MARI SINE FOR Å HA NOE Å TESTE PÅ 
 
