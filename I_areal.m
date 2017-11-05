@@ -2,20 +2,18 @@ function I_areal = I_areal(nTver,profil)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    I_areal                                                       %
 % Funksjon: Leser inn tversnittsdata og regner ut 2.arealmoment for de    %
-%           ulike typene, her I- og Rør-Profil.                           % 
+%           ulike typene profiltypene, her I- og Rør-Profil.              % 
 % Oppdatert: 2017-11-01                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-fprintf('Beregner 2.arealmoment for tversnittene...\n'); % Melding til bruker
 I_areal = zeros(2,1);
-
 
 for i = 1: nTver
     y_global = 0; 
-% I-PROFIL
+% ------------------------- I-PROFIL --------------------------------------
     if(profil(i,1) == 1) 
-        % Henter informasjon (I-Profil)
-            h  = profil(i,2);       % Tversnittshøyde [mm]
+        % Henter informasjon 
+           h  = profil(i,2);       % Tversnittshøyde [mm]
             t_bf = profil(i,3);     % Tykkelse brunnflens [mm]
             t_tf = profil(i,4);     % Tykkelse toppflens [mm]
             t_s = profil(i,5);      % Tykkelse stag [mm]
@@ -61,7 +59,7 @@ for i = 1: nTver
         I_areal(i,1) = A_tf + A_bf + A_s;   % Total 2.Arealmoment I-Profil [mm^4] 
            
         
-% RØRTVERSNITT
+% ------------------------- RØRTVERSNITT ----------------------------------
     elseif(profil(i,1) == 2)
         r = 0.5*profil(i,2);                        % radius [mm]
         t = profil(i,3);                            % Tykkelse [mm]
@@ -69,13 +67,13 @@ for i = 1: nTver
         y_global = r;                               % [mm]
                    
         
-% ANNET    
+% ------------------------- ANNET -----------------------------------------    
     else
-        fprintf('Error: Ugyldig tversnittsnummer'); % Melding til bruker
+        fprintf('Error: Ugyldig tversnittsnummer'); 
         I_areal = 0; 
     end
 end
 
-fprintf('2.arealmoment beregnet for alle profiltyper\n\n'); % Melding til bruker
+fprintf('2.arealmoment beregnet for alle profiltyper\n'); 
 end
 

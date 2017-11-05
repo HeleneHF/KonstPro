@@ -5,8 +5,6 @@ function S = endeM(npunkt,punkt,nelem,elem,rot,fim,elemStiv)
 %Oppdatert: 2017-11-02                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-fprintf('Regner ut endemomenter...\n'); % Melding til bruker
-
 S = zeros(nelem,2); 
 momentRotasjon1 = zeros(nelem,2);
 

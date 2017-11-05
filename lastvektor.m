@@ -8,22 +8,20 @@ function b = lastvektor(fim,ytreMom,npunkt,nelem,elem)
 % Oppdatert: 2017-11-03                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-fprintf('Beregner lastvektoren...\n')       % Melding til bruker
+b = zeros(npunkt,1);    % Lastvektoren
 
-b = zeros(npunkt,1);                        % Setter av plass til verdiene [Nmm]
-
-% Fra fordelte laster og punktlaster
+% ----------------- Fra fordelte laster og punktlaster --------------------
 for i = 1:nelem
-    kPkt1 = elem(i,1);                      % Knutepunkt 1 for elementet
-    kPkt2 = elem(i,2);                      % Knutepunkt 2 for elementet 
+    KPkt1 = elem(i,1);                      % Knutepunkt 1 for elementet
+    KPkt2 = elem(i,2);                      % Knutepunkt 2 for elementet 
 
-    b(kPkt1,1) = b(kPkt1,1) - fim(i,1);     % "Summerer" laster i kPkt 1 [Nmm]
-    b(kPkt2,1) = b(kPkt2,1) - fim(i,2);     % "Summerer" laster i kPkt 2 [Nmm]
+    b(KPkt1,1) = b(KPkt1,1) - fim(i,1);     % Laster i kPkt 1
+    b(KPkt2,1) = b(KPkt2,1) - fim(i,2);     % Laster i kPkt 2
 end 
 
-% Fra ytre momenter
-b = b + ytreMom;        % Legger til de ytre momentene i tilhørende punkt [Nmm]
+% ----------------- Fra ytre momenter -------------------------------------
+b = b + ytreMom;        % Legger til ytre momenter 
 
-fprintf('Lastvektor beregnet.\n\n')           % Melding til bruker
+fprintf('Lastvektor beregnet.\n')          
 end
 
