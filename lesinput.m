@@ -40,7 +40,7 @@ function [npunkt, punkt, nelem, elem, nTver, profil, nForL, ForL, nPktL,....
 hoved = true;   % Avgjør om hoved- eller testfila
 
 if (hoved)    
-    filid = fopen('input.txt','r');             % Åpner hovedoppgaven
+    filid = fopen('inputC.txt','r');             % Åpner hovedoppgaven
     fprintf('Leser inn hovedoppgaven...\n');    
 else 
     filid = fopen('TestInputC_2014.txt','r');   % Åpner Oppgave c 2014

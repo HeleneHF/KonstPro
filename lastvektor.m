@@ -11,7 +11,7 @@ function b = lastvektor(fim,ytreMom,npunkt,nelem,elem)
 b = zeros(npunkt,1);    % Lastvektoren
 
 % ----------------- Fra fordelte laster og punktlaster --------------------
-for i = 1:nelem
+for i = 1:2 %nelem
     KPkt1 = elem(i,1);                      % Knutepunkt 1 for elementet
     KPkt2 = elem(i,2);                      % Knutepunkt 2 for elementet 
 
