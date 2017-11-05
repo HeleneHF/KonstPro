@@ -1,24 +1,28 @@
 function S = endeM(npunkt,punkt,nelem,elem,rot,fim,EI_L)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Titel:    endeM                                                         %
-%Funksjon: Regner ut endemomentet på alle bjelkene ved å regne momentet  %
-%          som følge av rotasjonen og legge til fastinnspenningsmomente  %
-%Oppdatert: 2017-11-05                                                   %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-S = zeros(2,1);  
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %Titel:    endeM                                                         %
+% %Funksjon: Regner ut endemomentet på alle bjelkene ved å regne momentet  %
+% %          som følge av rotasjonen og legge til fastinnspenningsmomente  %
+% %Oppdatert: 2017-11-05                                                   %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+S = zeros(nelem,2); 
+momentRotasjon1 = zeros(nelem,2);
 
 for i = 1:nelem
-    KPkt1 = elem(i,1);      
+    KPkt1 = elem(i,1); 
     KPkt2 = elem(i,2); 
+   
+    rot1 = rot(KPkt1); 
+    rot2 = rot(KPkt2); 
     
-    v = [rot(KPkt1); rot(KPkt2)];   % Rotasjonene på dette elementet
-    k = EI_L(i)*[4 2; 2 4];         % lokal stivhetsmatrise
-    rot_ledd = k*v;                 % Momentbidraget fra rotasjonene
-    S_bar = [fim(i,1); fim(i,2)];   % Fastinnspenningsmomentene
-    S_i = rot_ledd + S_bar;
-    
-    S(i,1) = S_i(1,1); 
-    S(i,2) = S_i(2,1);  
+    momentRotasjon1(i,:) = EI_L(i)*[4*rot1 + 2*rot2; 
+                                    2*rot1 + 4*rot2];
+    S(i,:) = momentRotasjon1(i,:) + fim(i,:);   
+
 end
 
-    
+fprintf('Endemomenter regnet ut.\n'); % Melding til bruker
+
+end
+
