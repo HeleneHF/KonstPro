@@ -47,27 +47,27 @@ rot = Kn\Bn;
 [endemoment, moment_rotasjon] = endeM(nelem, elem, bjelkestivhet, rot, fim);
 
 
-% %Regner ut momenter paa 'midten' av bjelker med fordelt last og under
-% %punktlast naar det er tilfellet.
-% moment_midt = beregn_midtmoment(endemoment, nelem, nlast_fordelt,...
-%     last_fordelt, q_amplituder, elementlengder, nlast_punkt, last_punkt);
-% 
-% %Regner ut maks boyespenning for endemomenter og midtmoment
-% spenning = boyespenning(endemoment, nelem, I, moment_midt, Y);
-% 
-% 
-% %Henter ut det maksimale momentet og hvilket element det befinner seg paa.
-% %Dette er en viktig storrelse da den er dimmensjonerende
-% [maxmomentvec, plasseringer] = max(abs(spenning));
-% [maxmoment, id] = max(maxmomentvec);
-% max_elem_nummer = plasseringer(id);
-% 
-% 
-% %Regner ut skjaerkraft for hver ende elementvis
-% skjarkrafter = skjaer(nelem, moment_rotasjon,elementlengder...
-%     ,nlast_punkt,last_punkt,nlast_fordelt,last_fordelt,q_amplituder...
-%     );
-% 
+%Regner ut momenter paa 'midten' av bjelker med fordelt last og under
+%punktlast naar det er tilfellet.
+moment_midt = beregn_midtmoment(endemoment, nelem, nlast_fordelt,...
+    last_fordelt, q_amplituder, elementlengder, nlast_punkt, last_punkt);
+
+%Regner ut maks boyespenning for endemomenter og midtmoment
+spenning = boyespenning(endemoment, nelem, I, moment_midt, Y);
+
+
+%Henter ut det maksimale momentet og hvilket element det befinner seg paa.
+%Dette er en viktig storrelse da den er dimmensjonerende
+[maxmomentvec, plasseringer] = max(abs(spenning));
+[maxmoment, id] = max(maxmomentvec);
+max_elem_nummer = plasseringer(id);
+
+
+%Regner ut skjaerkraft for hver ende elementvis
+skjarkrafter = skjaer(nelem, moment_rotasjon,elementlengder...
+    ,nlast_punkt,last_punkt,nlast_fordelt,last_fordelt,q_amplituder...
+    );
+
 % 
 % % %Skriver ut resulatatene til filen rusultat.txt
 % filid1=fopen('resultat.txt','w');
