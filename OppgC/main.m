@@ -2,7 +2,7 @@
 % Titel:    MATLAB-Prosjektet                                             %
 % Emne:     TMR4167 - Marin Teknikk 2                                     %                                                  
 % Semester: Høst 2017                                                     %
-% Forfattere:                                                             %                                                         
+% Forfattere: 10024, 10048, 10076, 10011                                  %                                                         
 % Oppdatert: 2017-11-04                                                   %
 % Funksjon: Main analyserer en konstruksjon med gitte profiler og laster  %
 %           ved hjelp av en rekke underfunksjoner. Den skriver ut         %
