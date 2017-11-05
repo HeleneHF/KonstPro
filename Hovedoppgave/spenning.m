@@ -1,4 +1,4 @@
-function sigma = spenning(profil,nelem,elem,I,endeMom,m_midt)
+ function sigma = spenning(profil,nelem,elem,I,endeMom,m_midt)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    spenning                                                      %
 % Funksjon: Lager en matrise med plass til momentene som virker i hvert   %

@@ -8,7 +8,6 @@
 %           ved hjelp av en rekke underfunksjoner. Den skriver ut         %
 %           rotasjonene i knutepunktene og endemomentene i knutepunktene  %
 %           til konstruksjonen.                                           %
-% Subrutiner:                                                             %
 %                                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -23,8 +22,9 @@ fprintf('--------------------------------------------------------------\n')
 nMom, Mom] = lesinput();    % Leser inputdata
 
 %% ---------- 2. BEREGNINGER ELEMENTER OG PROFILER ------------------------
-%I  = I_areal(nTver,profil);         % 2. Arealmoment for profiltypene 
-I = [100e6; 100e6];
+
+I = [100e6; 100e6];     % 2. Arealmoment. Satt lik 100e6 for lettere å 
+                        % kunne sammenlikne med håndregningen
 
 l = lengder(punkt,elem,nelem);      % Elementlengder
 EI_l = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet
@@ -57,13 +57,12 @@ midtMom = BoyPktL + BoyForL;                            % Totalt
 
 
 %% ----------  8. SPENNINGER ---------------------------------------------- 
-sigma = spenning(profil,nelem,elem,I,endeMom,midtMom); 
-testSigma = spenningstest(sigma);                      
-
+% sigma = spenning(profil,nelem,elem,I,endeMom,midtMom); 
+% testSigma = spenningstest(sigma);                      
 
 %% ---------- 9. RESULTATER ----------------------------------------------
-% % disp('Rotasjonane i de ulike punktene:')
-% % rot
-% 
-% %disp('Elementvis endemoment:')
-% %endemoment
+disp('Rotasjonane i de ulike punktene:')
+rot
+
+disp('Elementvis endemoment:')
+endeMom

@@ -1,8 +1,8 @@
-function V = sjaer(nelem, elem,l,endemoment,nPktL,PktL,nFlast,Flast,q0_KPkt);
+function V = sjaer(nelem, elem,l,endemoment,nPktL,PktL,nFlast,Flast,q0_KPkt)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titel:    sjaer                                                         %
 % Funksjon:                                                               %
-% Oppdatert: 2017-11-01                                                   %
+% Oppdatert: 2017-11-05                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 V = zeros(nelem,2);
 

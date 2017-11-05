@@ -8,7 +8,6 @@
 %           ved hjelp av en rekke underfunksjoner. Den skriver ut         %
 %           rotasjonene i knutepunktene og endemomentene i knutepunktene  %
 %           til konstruksjonen.                                           %
-% Subrutiner:                                                             %
 %                                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -23,50 +22,45 @@ fprintf('--------------------------------------------------------------\n')
 nMom, Mom] = lesinput();    % Leser inputdata
 
 %% ---------- 2. BEREGNINGER ELEMENTER OG PROFILER ------------------------
-%I  = I_areal(nTver,profil);         % 2. Arealmoment for profiltypene 
-I = [100e6; 100e6];
-
+I  = I_areal(nTver,profil)          % 2. Arealmoment for profiltypene 
 l = lengder(punkt,elem,nelem);      % Elementlengder
 EI_l = elemStivhet(nelem,elem,l,I); % Elementenes bøyestivhet
 
+
 %% ---------- 3. BEREGNINGER LASTER ---------------------------------------
+% Lastamplituder i hvert knutepunkt når en fordelt last går over mer enn 
+% et element
 q0_KPkt = q0_KPktFunc(nelem,elem, l, nForL, ForL, npunkt);        
-            
+
+
 %% ---------- 4. FASTINNSPENNINGSMOMENTER ---------------------------------
 fim = moment(npunkt,punkt,nelem,elem,l, nPktL, PktL,nForL, ....
-                        ForL,nMom,Mom,q0_KPkt); 
-                    
+                        ForL,nMom,Mom,q0_KPkt);     
 ytreMom = ytreMomFunc(npunkt,nMom, Mom);
 
 %% ---------- 5. LASTVEKTOR OG SYSTEMSTIVHETSMATRISE ----------------------
 b = lastvektor(fim,ytreMom,npunkt,nelem,elem);  % Lastvektoren    
 K = stivhet(nelem,elem,npunkt,EI_l);            % Systemstivhetsmatrisen
- 
+
+
 %% ---------- 6. LØSER LIGNINGSSYSTEMET -----------------------------------
 [Kn, Bn] = bc(npunkt,punkt,K,b);    % Innfører grensebetingelser
 rot = Kn\Bn;                        % Beregner rotasjonene
 
-%% ---------- 7. ENDEMOMENTER ---------------------------------------------
-% NB: FEIL!!
-[endemoment, moment_rotasjon] = endeM(nelem, elem,...
-    bjelkestivhet, rot, fim)
-    endeMom = endeM(npunkt,punkt,nelem,elem,rot,fim,EI_l);   
-    %endeMom = [-58.2077e-9, -58.2077e-9; ....
-    %              -810.000e6, 0];  %NB! MARI SINE FOR Å HA NOE Å TESTE PÅ 
+%% ---------- 7. MOMENTER ---------------------------------------------
+endeMom = endeM(npunkt,punkt,nelem,elem,rot,fim,EI_l);  % Endemomentene
+BoyPktL = BoyPktL(nelem,elem,l,nPktL, PktL,fim);        % Punktlaster
+BoyForL = BoyForL(nelem,l,q0_KPkt,fim);                 % Fordelte laster
+midtMom = BoyPktL + BoyForL;                            % Totalt  
 
-% %% ---------- 8. BØYEMOMENTER ---------------------------------------------
-% BoyPktL = BoyPktL(nelem,elem,l,nPktL, PktL,fim);  % Fra punktlaster
-% BoyForL = BoyForL(nelem,l,q0_KPkt,fim);           % Fra fordelte laster
-% midtMom = BoyPktL + BoyForL;                      % Approksimert totalt  
-% 
-% %% ----------  9. SPENNINGER ---------------------------------------------- 
-% %v = sjaer(nelem, elem,l,endeMom,nPktL,PktL,nForL,ForL,q0_KPkt);
-% sigma = spenning(profil,nelem,elem,I,endeMom,midtMom); 
-% testSigma = spenningstest(sigma);                      
-% 
-% %% ---------- 10. RESULTATER ----------------------------------------------
-% % disp('Rotasjonane i de ulike punktene:')
-% % rot
-% 
-% %disp('Elementvis endemoment:')
-% %endemoment
+
+%% ----------  8. SPENNINGER ---------------------------------------------- 
+sigma = spenning(profil,nelem,elem,I,endeMom,midtMom); 
+testSigma = spenningstest(sigma);                      
+
+%% ---------- 9. RESULTATER ----------------------------------------------
+disp('Rotasjonane i de ulike punktene:')
+rot
+
+disp('Elementvis endemoment:')
+endeMom
